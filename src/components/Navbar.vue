@@ -74,4 +74,13 @@ export default {
    border: none;
    background: none;
  }
+
+ .navbar {
+  overflow: hidden;
+  background-color: white;
+  position: fixed;
+  top: 0; 
+  width: 100%;
+}
+
 </style>
