@@ -1,7 +1,7 @@
 <template>
 <div id="app">
      <Navbar></Navbar>
-<Toppage></Toppage>
+    <Toppage></Toppage>
 
 <br>
 <br>

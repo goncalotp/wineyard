@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light ">
-  <a href="#" class="navbar-left"><img style="width:30px" src="../assets/logo.png"></a>
+  <a href="" class="navbar-left"><router-link to="/home"></router-link><img style="width:30px" src="../assets/logo.png"></a>
   <a class="navbar-brand" href="#">Wineyard</a>
 
 
@@ -12,7 +12,7 @@
                 <input id="searchBar" class="form-control border-secondary" type="search" placeholder="procurar">
                 <div  class="input-group-append">
                     <button id="fafaSearch" type="button">
-                        <i class="fa fa-search"></i>
+                        <i class="glyphicon glyphicon-search form-control-feedback"></i>
                     </button>
                 </div>
             </div>
@@ -28,10 +28,19 @@
         <a id="items"  class="nav-link" href="#">Contactos</a>
       </li>
        <li class="nav-item">
-        <a  id="items" class="nav-link" href="#">Login</a>
+        <a  id="items" class="nav-link" href="#"><router-link to="/login">Login</router-link></a>
       </li>
      </ul>
+
+   
 </nav>
+
+
+ 
+              
+  
+ 
+
       <!-- <li class="nav-item">
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
       </li> -->
@@ -81,6 +90,8 @@ export default {
   position: fixed;
   top: 0; 
   width: 100%;
+  
 }
+
 
 </style>
