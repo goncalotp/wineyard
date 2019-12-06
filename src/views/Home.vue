@@ -18,6 +18,7 @@
     </div>
   </div>
 </div>
+ <Footer></Footer>
 </div>
  
 </template>
@@ -30,6 +31,8 @@ import Toppage from "../components/Toppage.vue"
 import CidadesRotas from "../components/CidadesRotas.vue"
 import InfoRotas from "../components/InfoRotas.vue"
 import QuintasDestaque from "../components/QuintasDestaque.vue"
+import Footer from "../components/Footer.vue"
+
 
 
 
@@ -41,7 +44,9 @@ export default {
     Toppage,
     CidadesRotas,
     InfoRotas,
-    QuintasDestaque
+    QuintasDestaque,
+    Footer
+ 
    
     
    

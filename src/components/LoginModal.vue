@@ -1,7 +1,11 @@
 <template>
     <div id="fromLogin">
-       
-        <div class="container col-sm-4">
+        <div class="row">
+       <div class="col-sm-6" style="text-align:center">
+            <img style="width:50%"  src="../assets/vineyardgif.gif">
+       </div>
+        <div class="col-sm-4">
+           
             <h1>Login</h1>
         <form>
             <div class="form-group">
@@ -15,9 +19,10 @@
                 <label for="exampleInputPassword1">Password:</label>
                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
             </div>
-            <button type="button" class="btn btn-link"><router-link to="/register">Registar</router-link></button>
-            <button type="submit" class="btn btn-primary">Iniciar Sessão</button>
+            <button type="button"><router-link to="/register">Registar</router-link></button>
+            <button type="submit">Iniciar Sessão</button>
         </form>
+        </div>
         </div>
     </div>
 </template>
@@ -28,3 +33,14 @@ export default {
 
 };
 </script>
+
+
+<style scoped>
+  button {
+      border: none;
+      background: none;
+      color: rgb(67, 53, 92);  
+  }
+
+
+</style>

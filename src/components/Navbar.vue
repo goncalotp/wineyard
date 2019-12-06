@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light ">
+  <nav class="navbar navbar-expand-lg  ">
   <a href="" class="navbar-left"><router-link to="/home"></router-link><img style="width:30px" src="../assets/logo.png"></a>
   <a class="navbar-brand" href="#">Wineyard</a>
 
@@ -31,24 +31,17 @@
         <a  id="items" class="nav-link" href="#"><router-link to="/login">Login</router-link></a>
       </li>
      </ul>
-
+<div >
+  <select>
+    <option value="0">PT</option>
+    <option value="1">ENG</option>
+  </select>
+</div>
    
 </nav>
 
 
  
-              
-  
- 
-
-      <!-- <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li> -->
-    
-    <!-- <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form> -->
  
 
  
@@ -70,12 +63,11 @@ export default {
 <style scoped>
 
 
-#items{
-  color: grey
-}
 
  #searchBar {
-   border-radius: 25px;
+   border-radius: 50px;
+   background: rgb(67, 53, 92);
+   color: white;
  }
 
 
@@ -86,12 +78,25 @@ export default {
 
  .navbar {
   overflow: hidden;
-  background-color: white;
+  
+  background-color: rgb(67, 53, 92);
   position: fixed;
   top: 0; 
   width: 100%;
   
+  
 }
+
+.navbar, a {
+  color: white;
+   opacity: 0.9
+}
+
+.nav-link {
+  color: white;
+}
+
+
 
 
 </style>

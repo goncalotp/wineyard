@@ -1,8 +1,12 @@
 <template>
-    <div id="fromrRegister">
-
-        <div class="container col-sm-4">
-            <h1> <img src="../assets/circuloverde1.png"> Conta</h1>
+    <div id="fromLogin">
+        <div class="row">
+       <div class="col-sm-6" style="text-align:center">
+            <img style="width:50%"  src="../assets/vineyardgif.gif">
+       </div>
+        <div class="col-sm-4">
+         
+            <h1> Registar</h1>
             <form v-on:submit.prevent="addUser()">
                 <div class="form-group">
                     <label for="registerName">Nome:</label>
@@ -31,9 +35,14 @@
                     <router-link to="/login">Login</router-link>
                 </button>
             </form>
+        
+        </div>
         </div>
     </div>
 </template>
+
+
+
 
 <script>
     export default {
