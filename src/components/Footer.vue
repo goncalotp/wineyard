@@ -28,24 +28,24 @@
 
         <ul class="list-unstyled">
           <li>
-            <p>
+            
               <a href="#!">Minhas rotas</a>
-            </p>
+            
           </li>
           <li>
-            <p>
+            
               <a href="#!">Sobre nós</a>
-            </p>
+            
           </li>
           <li>
-            <p>
+            
               <a href="#!">Mapas</a>
-            </p>
+            
           </li>
           <li>
-            <p>
+          
               <a href="#!">Login</a>
-            </p>
+            
           </li>
         </ul>
 
@@ -62,16 +62,16 @@
 
         <ul class="list-unstyled">
           <li>
-            <p>
-              <i class="fas fa-home mr-3"></i> Escola Superior Media Artes e Design</p>
+            
+              <i class="fas fa-home mr-3"> Escola Superior Media Artes e Design</i> 
           </li>
           <li>
-            <p>
-              <i class="fas fa-envelope mr-3"></i> wineyard@gmail.com</p>
+          
+              <i class="fas fa-envelope mr-3"> wineyard@gmail.com</i> 
           </li>
           <li>
-            <p>
-              <i class="fas fa-phone mr-3"></i> + 351 931 343 123</p>
+          
+              <i class="fas fa-phone mr-3"> + 351 931 343 123</i> 
           </li>
         </ul>
 
@@ -112,7 +112,7 @@
 <style scoped>
 
 footer {
-  background-color: rgb(67, 53, 92);
+  background-color: rgb(49, 49, 49);
   overflow: hidden;
 
   bottom: 0; 

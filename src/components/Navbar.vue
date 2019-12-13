@@ -19,10 +19,10 @@
         </div>
     </div>
       <li class="nav-item">
-        <a id="items" class="nav-link" href="#">Minhas Rotas </a>
+        <a id="items" class="nav-link" href="#"><router-link to="/myroutes">Minhas Rotas</router-link> </a>
       </li>
       <li class="nav-item">
-        <a  id="items" class="nav-link" href="#">Mapa</a>
+        <a  id="items" class="nav-link" href="#"><router-link to="/map">Mapa</router-link></a>
       </li>
        <li class="nav-item">
         <a id="items"  class="nav-link" href="#">Contactos</a>
@@ -66,7 +66,7 @@ export default {
 
  #searchBar {
    border-radius: 50px;
-   background: rgb(67, 53, 92);
+   background: rgb(49, 49, 49);
    color: white;
  }
 
@@ -79,7 +79,7 @@ export default {
  .navbar {
   overflow: hidden;
   
-  background-color: rgb(67, 53, 92);
+  background-color: rgb(49, 49, 49);
   position: fixed;
   top: 0; 
   width: 100%;
@@ -89,7 +89,7 @@ export default {
 
 .navbar, a {
   color: white;
-   opacity: 0.9
+ 
 }
 
 .nav-link {
