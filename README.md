@@ -1,4 +1,4 @@
-# vineyard
+# wineyard
 
 ## Project setup
 ```

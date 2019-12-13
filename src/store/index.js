@@ -8,21 +8,10 @@ export default new Vuex.Store({
   state: {
     users: [],
     x: 0,
-    logged: false,
     loggedUser: [],
     existUser: false
   },
   getters: {
-    lastId(state) {
-      if (!state.users.length) {
-        return state.users[state.users.length - 1].id
-      } else {
-        return 0
-      }
-      /* userRegisted: state =>{
-         return state.users.filter(user => user.registered)
-       }*/
-    }
   },
   mutations: {
     UPDATE_X(state, payload) {
@@ -75,7 +64,7 @@ export default new Vuex.Store({
       }
     },
     LOGOUT(state){
-      state.loggedUser.pop()
+      state.loggedUser.shift()
     }
 
   },
