@@ -1,127 +1,99 @@
 <template>
-<!-- Footer -->
-<footer class="page-footer font-small mdb-color lighten-3 pt-4">
+  <!-- Footer -->
+  <footer class="page-footer font-small mdb-color lighten-3 ">
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left">
+      <!-- Grid row -->
+      <div class="row">
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+          <!-- Content -->
+          <h5 class="font-weight-bold text-uppercase mb-4">Wineyard</h5>
+          <p>
+            Aplicação desenvolvida para a unidade curricular de Programação Web
+            1.
+          </p>
+        </div>
+        <!-- Grid column -->
 
-  <!-- Footer Links -->
-  <div class="container text-center text-md-left">
+        <hr class="clearfix w-100 d-md-none" />
 
-    <!-- Grid row -->
-    <div class="row">
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+          <!-- Links -->
+          <h5 class="font-weight-bold text-uppercase mb-4">Sobre</h5>
 
-      <!-- Grid column -->
-      <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
-
-        <!-- Content -->
-        <h5 class="font-weight-bold text-uppercase mb-4">Wineyard</h5>
-        <p>Aplicação desenvolvida para a unidade curricular de Programação Web 1. </p>
-
-      </div>
-      <!-- Grid column -->
-
-      <hr class="clearfix w-100 d-md-none">
-
-      <!-- Grid column -->
-      <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
-
-        <!-- Links -->
-        <h5 class="font-weight-bold text-uppercase mb-4">Sobre</h5>
-
-        <ul class="list-unstyled">
-          <li>
-            
+          <ul class="list-unstyled">
+            <li>
               <a href="#!">Minhas rotas</a>
-            
-          </li>
-          <li>
-            
+            </li>
+            <li>
               <a href="#!">Sobre nós</a>
-            
-          </li>
-          <li>
-            
+            </li>
+            <li>
               <a href="#!">Mapas</a>
-            
-          </li>
-          <li>
-          
+            </li>
+            <li>
               <a href="#!">Login</a>
-            
-          </li>
-        </ul>
+            </li>
+          </ul>
+        </div>
+        <!-- Grid column -->
 
+        <hr class="clearfix w-100 d-md-none" />
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
+          <!-- Contact details -->
+          <h5 class="font-weight-bold text-uppercase mb-4">Contactos</h5>
+
+          <ul class="list-unstyled">
+            <li>
+              <i class="fas fa-home mr-3">
+                Escola Superior Media Artes e Design</i
+              >
+            </li>
+            <li>
+              <i class="fas fa-envelope mr-3"> wineyard@gmail.com</i>
+            </li>
+            <li>
+              <i class="fas fa-phone mr-3"> + 351 931 343 123</i>
+            </li>
+          </ul>
+        </div>
+        <!-- Grid column -->
+
+        <hr class="clearfix w-100 d-md-none" />
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
+          <img style="width: 80%" src="../assets/logo.png" />
+        </div>
+        <!-- Grid column -->
       </div>
-      <!-- Grid column -->
-
-      <hr class="clearfix w-100 d-md-none">
-
-      <!-- Grid column -->
-      <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
-
-        <!-- Contact details -->
-        <h5 class="font-weight-bold text-uppercase mb-4">Contactos</h5>
-
-        <ul class="list-unstyled">
-          <li>
-            
-              <i class="fas fa-home mr-3"> Escola Superior Media Artes e Design</i> 
-          </li>
-          <li>
-          
-              <i class="fas fa-envelope mr-3"> wineyard@gmail.com</i> 
-          </li>
-          <li>
-          
-              <i class="fas fa-phone mr-3"> + 351 931 343 123</i> 
-          </li>
-        </ul>
-
-      </div>
-      <!-- Grid column -->
-
-      <hr class="clearfix w-100 d-md-none">
-
-      <!-- Grid column -->
-      <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
-
-        <img style="width: 80%" src="../assets/logo.png">
-
-      </div>
-      <!-- Grid column -->
-
+      <!-- Grid row -->
     </div>
-    <!-- Grid row -->
-
-  </div>
-  <!-- Footer Links -->
-
-  
-
-</footer>
-<!-- Footer -->
- 
-  
+    <!-- Footer Links -->
+  </footer>
+  <!-- Footer -->
 </template>
 
 <script>
-
-
-
+export default {
+  name: "Footer"
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 footer {
   background-color: rgb(49, 49, 49);
-  overflow: hidden;
-
-  bottom: 0; 
-  width: 100%;
 }
 
-h5, p, a, i {
-  color: white
+h5,
+p,
+a,
+i {
+  color: white;
 }
-
-
 </style>

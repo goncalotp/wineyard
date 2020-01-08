@@ -46,6 +46,18 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/MyRoutes.vue")
   },
+  {
+    path: "/wineriesdescription",
+    name: "wineriesdescription",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/WineriesDescription.vue")
+  },
+  {
+    path: "/adminpage",
+    name: "adminpage",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/AdminPage.vue")
+  },
   
 ];
 

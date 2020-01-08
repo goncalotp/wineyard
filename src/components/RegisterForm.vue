@@ -55,8 +55,12 @@
             }
         },
         methods: {
+            getLastId(){
+                return this.$store.getters.lastId
+            },
             addUser() {
                 this.$store.commit('ADD_USER',{
+                    id: this.getLastId(),
                     email: this.email,
                     name: this.name,
                     password: this.password,

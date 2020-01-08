@@ -40,13 +40,12 @@ export default {
     Toppage,
     InfoRotas,
     Features
-  
-  
- 
-   
-    
-   
-  }
+  },
+/*   computed:{
+    addWineries(){
+      this.$store.commit('ADD_WINERIES')
+    }
+  }, */
 };
 </script>
 
