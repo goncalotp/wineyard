@@ -126,6 +126,64 @@ export default new Vuex.Store({
     },
     ADD_WINERIES() {
       localStorage.setItem("wineries", JSON.stringify(this.state.wineries));
+    },
+    ////////////////////////////STORE////////////////////////////////
+    CHANGE_TYPE_USER(state, payload) {
+      for (const user of state.users) {
+        if (user.email === payload.mail) {
+          if (user.type == 0) {
+            user.type = 1;
+            alert("aqui");
+          } else {
+            user.type = 0;
+            alert("aqui1");
+          }
+        }
+      }
+      localStorage.setItem("users", JSON.stringify(this.state.users));
+    },
+    REMOVE_USER(state, payload) {
+      state.users = state.users.filter(user => user.email !== payload.email);
+      localStorage.setItem("users", JSON.stringify(this.state.users));
+    },
+    ORDER_BY_NAME(state, payload) {
+      state.users.sort(payload.compare);
+    },
+    ORDER_BY_NAME_WINERIES(state, payload) {
+      state.wineries.sort(payload.compare);
+    },
+    REMOVE_WINERIES(state, payload) {
+      state.wineries = state.wineries.filter(
+        winerie => winerie.id !== payload.idWinerie
+      );
+      localStorage.setItem("wineries", JSON.stringify(this.state.wineries));
+    },
+    ADD_WINERIES_FORM(state, payload) {
+      for (const winerie of state.wineries) {
+        if (
+          winerie.latitude == payload.latitudeForm &&
+          winerie.long == payload.longForm
+        ) {
+          state.existWineries = true;
+        }
+      }
+      if (state.existWineries == false) {
+        state.wineries.push({
+          id: payload.idWinerie,
+          name: payload.nameForm,
+          route: payload.routeForm,
+          description: payload.descriptionForm,
+          img: payload.imgForm,
+          rate: 0,
+          lunch: payload.lunchForm,
+          wine: payload.wineForm,
+          latitude: payload.latitudeForm,
+          long: payload.longForm
+        });
+        localStorage.setItem("wineries", JSON.stringify(this.state.wineries));
+      } else {
+        alert("Já existe quinta/adega com as mesmas cordenadas");
+      }
     }
   },
   actions: {},

@@ -37,8 +37,7 @@ const routes = [
   {
     path: "/map",
     name: "map",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Map.vue")
+    component: () => import(/* webpackChunkName: "about" */ "../views/Map.vue")
   },
   {
     path: "/myroutes",
@@ -58,7 +57,25 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/AdminPage.vue")
   },
-  
+  /////////////////////////////ROUTER//////////////////////////////
+  {
+    path: "/usersadmin",
+    name: "usersadmin",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/UsersAdmin.vue")
+  },
+  {
+    path: "/wineriesadmin",
+    name: "wineriesadmin",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/WineriesAdmin.vue")
+  },
+  {
+    path: "/addwinerieadmin",
+    name: "addwinerieadmin",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/AddWinerieAdmin.vue")
+  }
 ];
 
 const router = new VueRouter({

@@ -24,6 +24,17 @@
           </div>
         </div>
       </div>
+       
+      <div class=" dropdown nav-item ">
+        <a   v-if="this.$store.state.loggedUser.length != 0" href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
+          > <router-link to="/">{{ name() }}</router-link></a
+        >
+        <div class="dropdown-content dropdown-menu">
+          <a href="#" class="dropdown-item">Inbox</a>
+          <a href="#" class="dropdown-item">Sent</a>
+          <a href="#" @click="logout()" class="dropdown-item">Logout</a>
+        </div>
+      </div>
       <li class="nav-item">
         <a
           v-if="this.$store.state.loggedUser.length != 0"
@@ -52,61 +63,13 @@
           <router-link to="/login">Login</router-link>
         </a>
       </li>
-      <li class="nav-item">
-        <a
-          v-if="this.$store.state.loggedUser.length != 0"
-          @click="logout()"
-          id="items"
-          class="nav-link"
-          href="#"
-        >
-          <router-link to="/">{{ name() }}</router-link>
-        </a>
-      </li>
-      <div class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
-          >Messages</a
-        >
-        <div class="dropdown-menu">
-          <a href="#" class="dropdown-item">Inbox</a>
-          <a href="#" class="dropdown-item">Sent</a>
-          <a href="#" class="dropdown-item">Drafts</a>
-        </div>
-      </div>
       <!--GESTÂO DO ADMIN-->
-      <li class="nav-item">
-        <a
-          v-if="this.$store.state.loggedUser.length != 0"
-          id="items"
-          class="nav-link"
-          href="#"
-        >
-          <router-link to="/adminpage">{{ getTypeUser() }}</router-link>
+      <li class="nav-item" v-for="user in this.$store.state.loggedUser" v-bind:key=user>
+        <a  v-if="user.type == '0'"  id="items" class="nav-link" href="#">
+          <router-link to="/adminpage">Gestão</router-link>
         </a>
-      </li>
-      <li class="nav-item dropdown">
-        <a
-          class="nav-link dropdown-toggle"
-          href="#"
-          id="navbarDropdown"
-          role="button"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          PT
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">EN</a>
-        </div>
       </li>
     </ul>
-    <div>
-      <select>
-        <option value="0">PT</option>
-        <option value="1">ENG</option>
-      </select>
-    </div>
   </nav>
 </template>
 
@@ -131,7 +94,8 @@ export default {
     },
     getTypeUser() {
       return this.$store.getters.typeUser;
-    }
+    },
+    
   }
 };
 </script>
@@ -150,8 +114,8 @@ export default {
 }
 
 .navbar {
-  overflow: hidden;
 
+  color: black;
   background-color: rgb(49, 49, 49);
   position: fixed;
   top: 0;
@@ -159,7 +123,17 @@ export default {
   z-index: 4;
 }
 
-.navbar,
+.dropdown-content a {
+ 
+  color: black;
+  padding: 12px 16px;
+
+
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 a {
   color: white;
 }
