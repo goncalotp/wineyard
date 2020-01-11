@@ -3,12 +3,12 @@
     <br />
     <br />
     <br />
-    <button type="button" class="btn btn-primary">
-      <router-link to="adminpage">Voltar</router-link>
+    <button id="backBtn" type="button" class="button btn-primary">
+      <router-link style="color: white; text-decoration: none; "  to="adminpage"> Voltar </router-link>
     </button>
     <div class="container">
       <h1>GESTÃO DE UTILIZADORES</h1>
-      <button type="button" class="btn btn-primary" @click="orderByName()">A-Z</button>
+      <button type="button" class="button btn-primary" @click="orderByName()">A-Z</button>
       <table class="table">
         <thead>
           <tr>
@@ -37,6 +37,7 @@
         </tbody>
       </table>
     </div>
+       <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
   </div>
 </template>
 <script>
@@ -74,3 +75,27 @@ export default {
   },
 };
 </script>
+
+<style>
+.button {
+  background-color: #555555; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: black;
+}
+#backBtn{
+ 
+  background-color: #555555;
+}
+
+
+</style>

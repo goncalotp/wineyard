@@ -25,16 +25,16 @@
 
           <ul class="list-unstyled">
             <li>
-              <a href="#!">Minhas rotas</a>
+              <a href="#!"> <router-link to="/myroutes">Minhas Rotas</router-link></a>
             </li>
             <li>
-              <a href="#!">Sobre nós</a>
+              <a href="#!"> <router-link to="/about">Contactos</router-link></a>
             </li>
             <li>
-              <a href="#!">Mapas</a>
+              <a href="#!"><router-link to="/map">Mapa</router-link></a>
             </li>
             <li>
-              <a href="#!">Login</a>
+              <a href="#!"> <router-link to="/login">Login</router-link></a>
             </li>
           </ul>
         </div>
@@ -54,7 +54,7 @@
               >
             </li>
             <li>
-              <i class="fas fa-envelope mr-3"> wineyard@gmail.com</i>
+              <i class="fas fa-envelope mr-3"> wineyardgrupo@gmail.com</i>
             </li>
             <li>
               <i class="fas fa-phone mr-3"> + 351 931 343 123</i>
@@ -67,7 +67,7 @@
 
         <!-- Grid column -->
         <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
-          <img style="width: 80%" src="../assets/logo.png" />
+          <img style="width: 70%" src="../assets/logo.png" />
         </div>
         <!-- Grid column -->
       </div>
@@ -91,9 +91,24 @@ footer {
 }
 
 h5,
-p,
-a,
 i {
   color: white;
+  font-family: "Didact Gothic", sans-serif;
 }
+
+p{
+ color: white;
+  font-family: "Didact Gothic", sans-serif;
+}
+
+a,i{
+  font-size: 14px;
+  color:white;
+  font-family: "Didact Gothic", sans-serif;
+}
+
+
+@import url("https://fonts.googleapis.com/css?family=Cinzel&display=swap");
+
+@import url("https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap");
 </style>

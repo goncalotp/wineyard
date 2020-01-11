@@ -5,33 +5,27 @@
       ><img style="width:30px" src="../assets/logo.png" />
     </a>
     <a class="navbar-brand" href="#">Wineyard</a>
-
     <ul class="navbar-nav ml-auto">
-      <div class="row">
-        <div class="col-12">
-          <div class="input-group">
-            <input
-              id="searchBar"
-              class="form-control border-secondary"
-              type="search"
-              placeholder="procurar"
-            />
-            <div class="input-group-append">
-              <button id="fafaSearch" type="button">
-                <i class="glyphicon glyphicon-search form-control-feedback"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-       
       <div class=" dropdown nav-item ">
-        <a   v-if="this.$store.state.loggedUser.length != 0" href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
-          > <router-link to="/">{{ name() }}</router-link></a
+        <a
+          v-if="this.$store.state.loggedUser.length != 0"
+          href="#"
+          class="nav-link dropdown-toggle"
+          data-toggle="dropdown"
+        >
+          <router-link to="/">{{ name() }}</router-link></a
         >
         <div class="dropdown-content dropdown-menu">
-          <a href="#" class="dropdown-item">Inbox</a>
-          <a href="#" class="dropdown-item">Sent</a>
+          <li
+            class="nav-item"
+            v-for="user in this.$store.state.loggedUser"
+            v-bind:key="user"
+          >
+            <a v-if="user.type == '0'" id="items" class="dropdown-item" href="#">
+              <router-link to="/adminpage">Gestão</router-link>
+            </a>
+          </li>
+          <a href="#" class="dropdown-item"><router-link to="/profile">Perfil</router-link></a>
           <a href="#" @click="logout()" class="dropdown-item">Logout</a>
         </div>
       </div>
@@ -51,7 +45,9 @@
         </a>
       </li>
       <li class="nav-item">
-        <a id="items" class="nav-link" href="#">Contactos</a>
+        <a id="items" class="nav-link" href="#">
+              <router-link to="/about">Contactos</router-link>
+        </a>
       </li>
       <li class="nav-item">
         <a
@@ -64,11 +60,6 @@
         </a>
       </li>
       <!--GESTÂO DO ADMIN-->
-      <li class="nav-item" v-for="user in this.$store.state.loggedUser" v-bind:key=user>
-        <a  v-if="user.type == '0'"  id="items" class="nav-link" href="#">
-          <router-link to="/adminpage">Gestão</router-link>
-        </a>
-      </li>
     </ul>
   </nav>
 </template>
@@ -94,8 +85,7 @@ export default {
     },
     getTypeUser() {
       return this.$store.getters.typeUser;
-    },
-    
+    }
   }
 };
 </script>
@@ -114,7 +104,6 @@ export default {
 }
 
 .navbar {
-
   color: black;
   background-color: rgb(49, 49, 49);
   position: fixed;
@@ -124,11 +113,8 @@ export default {
 }
 
 .dropdown-content a {
- 
   color: black;
   padding: 12px 16px;
-
-
 }
 
 .dropdown:hover .dropdown-content {
@@ -140,5 +126,14 @@ a {
 
 .nav-link {
   color: white;
+  font-family: "Cinzel", serif;
 }
+
+.navbar-brand{
+   font-family: "Cinzel", serif;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Cinzel&display=swap");
+
+@import url("https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap");
 </style>

@@ -43,7 +43,7 @@
               Iniciar Sessão
             </button>
             <button id="registerBtn" type="button" class="button btn-link float-right">
-              <router-link to="/register">Registar</router-link>
+              <router-link style="color: black; text-decoration: none;" to="/register">Registar</router-link>
             </button>
            
           </form>
@@ -91,6 +91,9 @@ export default {
     localStorage.setItem("users", JSON.stringify(this.$store.state.users));
   }
 };
+
+
+
 </script>
 
 <style>
@@ -105,6 +108,7 @@ export default {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+  font-family: "Cinzel", serif;
 }
 
 .button:hover {
@@ -113,9 +117,22 @@ export default {
 
 
 #registerBtn{
-  border:none;
-  background-color: white;
-  color: black;
+  font-family: "Cinzel", serif;
+   background-color: white;
+   border: none;
+ 
+}
+h1 {
+  font-family: "Cinzel", serif;
 }
 
+
+label{
+  font-family: "Didact Gothic", sans-serif;
+}
+
+
+@import url("https://fonts.googleapis.com/css?family=Cinzel&display=swap");
+
+@import url("https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap");
 </style>

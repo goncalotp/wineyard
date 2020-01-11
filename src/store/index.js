@@ -39,6 +39,9 @@ export default new Vuex.Store({
     name(state) {
       return state.loggedUser[0].name;
     },
+    email(state) {
+      return state.loggedUser[0].email;
+    },
     typeUser(state) {
       return state.loggedUser[0].type;
     }

@@ -1,75 +1,139 @@
 <template>
   <div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-sm">
-          <div class="col-lg-12">
-            <div class="card-body" style="max-height: 350px">
-              <h5 style="text-align:center" class="card-title"> Rota 1 <img src="../assets/circuloverde1.png"> Baixo
-                Corgo </h5>
-              <br>
-              Armamar <br> Galafura<br>Lamego<br>Mesão Frio<br>Peso da Régua - Poirares<br>Peso da Régua - Vilarinho de
-              Freires<br>Pinhão<br>Sabrosa<br>Santa Marta de Penaguião<br>Vila Real
-              <br>
-              <img width="100%" src="../assets/rota1.jpg">
-              <button class="col-sm" id="seeWineries" @click="addWineries"><router-link to="/wineriesdescription">VER QUINTAS</router-link></button>
-            </div>
-          </div>
+    <div class="col-sm-10">
+    <!-- Rota1 -->
+    <div class="card-wrapper">
+      <!--Front Side-->
+      <div class="face front">
+        <!-- Image-->
+        <div class="view overlay">
+          <img
+            class="card-img-top"
+            src="../assets/rota1imagem.jpg"
+            alt="Example photo"
+          />
+          <a>
+            <div class="mask rgba-white-slight"></div>
+          </a>
         </div>
-        <div class="col-sm">
-          <div class="col-lg-12">
-            <div class="card-body" style="max-height: 350px">
-              <h5 style="text-align:center" class="card-title"> Rota 2 <img src="../assets/circuloroxo1.png"> Alto Corgo
-              </h5>
-              <br>
-              Alijó <br> Favaios<br>Murça<br>Pinhão<br>São João da Pesqueira<br>Tabuaço
-              <br>
-
-              <img style="text-align:center" width="75%" src="../assets/rota 2.jpg">
-              <button  class="col-sm" id="seeWineries" @click="addWineries">VER QUINTAS</button>
-
-            </div>
-          </div>
-        </div>
-        <div class="col-sm">
-          <div class="col-lg-12">
-            <div class="card-body" style="max-height: 350px">
-              <h5 style="text-align:center" class="card-title"> Rota 3 <img src="../assets/circulovermelho1.png"> À
-                descoberta do Douro Superior </h5>
-              <br>
-              Figueira de Castelo Rodrigo<br> Freixo de Espada à Cinta<br>Pinhão<br>Torre de Moncorvo<br>Vila
-              Flor<br>Vila Nova de Foz Côa<br>Carrazeda de Ansiães<br>Mêda
-              <br>
-              <img style="text-align:center" width="75%" src="../assets/rota3.jpg">
-              <button  class="col-sm" id="seeWineries" @click="addWineries">VER QUINTAS</button>
-            </div>
+        <!--Content-->
+        <div class="card-body">
+          <h4 class="" style="text-align:center">
+            Rota 1 <img src="../assets/circuloverde1.png" /> Baixo Corgo
+          </h4>
+          <p class="card-text" style="text-align:center">
+            Armamar, Galafura, Lamego, Mesão Frio, Peso da Régua - Poirares,
+            Peso da Régua - Vilarinho de Freires, Pinhão, Sabrosa, Santa Marta
+            de Penaguião, Vila Real
+          </p>
+          <div style="text-align:right">
+            <button class="btn btn-simple">
+              <i class="fa fa-mail-forward"></i> Ver mais
+            </button>
           </div>
         </div>
       </div>
     </div>
+    <br />
+    <!-- Rota2 -->
+    <div class="card-wrapper">
+      <!--Front Side-->
+      <div class="face front">
+        <!-- Image-->
+        <div class="view overlay">
+          <img
+            class="card-img-top"
+            src="../assets/rota2imagem.jpg"
+            alt="Example photo"
+          />
+          <a>
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+        <!--Content-->
+      
+        <div class="card-body">
+          <h4 class="" style="text-align:center">
+              Rota 2 <img src="../assets/circuloroxo1.png" /> Alto corgo
+            </h4>
+            <p class=" card-text" style="text-align:center">
+              Figueira de Castelo Rodrigo, Freixo de Espada à Cinta, Pinhão,
+              Torre de Moncorvo, >Vila Flor, Vila Nova de Foz Côa, Carrazeda de
+              Ansiães, Mêda
+            </p>
+          </div>
+          <div style="text-align:right">
+            <button class="btn btn-simple">
+              <i class="fa fa-mail-forward"></i> Ver mais
+            </button>
+          </div>
+        </div>
+      </div>
+   
+    <br />
+    <!-- Rota3 -->
+    <div class="card-wrapper">
+      <!--Front Side-->
+      <div class="face front">
+        <!-- Image-->
+        <div class="view overlay">
+          <img
+            class="card-img-top"
+            src="../assets/rota3imagem.jpg"
+            alt="Example photo"
+          />
+          <a>
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
 
+        <!--Content-->
+        <div class="card-body">
+          <h4 class="" style="text-align:center ">
+            Rota 3 <img src="../assets/circulovermelho1.png" /> À descoberta do
+            Douro Superior
+          </h4>
+          <p class="card-text" style="text-align:center">
+            Armamar, Galafura, Lamego, Mesão Frio, Peso da Régua - Poirares,
+            Peso da Régua - Vilarinho de Freires, Pinhão, Sabrosa, Santa Marta
+            de Penaguião, Vila Real
+          </p>
 
-
+          <div style="text-align:right">
+            <button class="btn btn-simple">
+              <i class="fa fa-mail-forward"></i> Ver mais
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
   </div>
 </template>
 <script>
-  export default {
-    methods: {
-      addWineries() {
-        this.$store.commit('ADD_WINERIES')
-      }
-    },
+export default {
+  methods: {
+    addWineries() {
+      this.$store.commit("ADD_WINERIES");
+    }
   }
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#seeWineries{
+#seeWineries {
   align-self: center;
-  border-radius: 50px;
   background-color: white;
   color: black;
 }
 
+h5,
+h4 {
+  font-family: "Didact Gothic", sans-serif;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Cinzel&display=swap");
+
+@import url("https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap");
 </style>

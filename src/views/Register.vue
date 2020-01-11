@@ -62,24 +62,26 @@
                 v-model="confPassword"
               />
             </div>
-              <button type="submit" class="button float-right">
+            <button type="submit" class="button float-right">
               Criar Conta
             </button>
             <button id="loginBtn" type="button" class="button float-right">
-              <router-link to="/login">Login</router-link>
+              <router-link
+                style="color: black; text-decoration: none;"
+                to="/login"
+                >Login</router-link
+              >
             </button>
-           
           </form>
         </div>
       </div>
     </div>
-      <br />
     <br />
     <br />
     <br />
     <br />
     <br />
- 
+    <br />
   </div>
 </template>
 
@@ -110,12 +112,10 @@ export default {
         password: this.password,
         confPassword: this.confPassword
       });
-      
     }
   }
 };
 </script>
-
 
 <style>
 .button {
@@ -129,16 +129,27 @@ export default {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+  font-family: "Cinzel", serif;
 }
 
-.button:hover{
- background-color: black;
+.button:hover {
+  background-color: black;
 }
 
-#loginBtn{
-  border:none;
+#loginBtn {
   background-color: white;
-  color: black;
+  border: none;
+  font-family: "Cinzel", serif;
+}
+h1 {
+  font-family: "Cinzel", serif;
 }
 
+
+label{
+font-family: "Didact Gothic", sans-serif;
+}
+@import url("https://fonts.googleapis.com/css?family=Cinzel&display=swap");
+
+@import url("https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap");
 </style>

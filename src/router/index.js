@@ -75,6 +75,12 @@ const routes = [
     name: "addwinerieadmin",
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/AddWinerieAdmin.vue")
+  },
+  {
+    path: "/profile",
+    name: "profile",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Profile.vue")
   }
 ];
 

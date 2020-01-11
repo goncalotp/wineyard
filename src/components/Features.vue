@@ -68,6 +68,8 @@
         </div>
       </div>
     </div>
+    <br>
+    <br>
   </div>
 </template>
 
@@ -92,12 +94,26 @@ i {
   border: none;
 }
 
-h3,
+
 h5 {
   text-align: center;
+  font-family: "Cinzel", serif;
+}
+
+
+h3{
+  font-family: "Cinzel", serif;
+   text-align: center;
+   font-size: 30px
 }
 
 p {
   text-align: center;
+  font-family: "Didact Gothic", sans-serif;
 }
+
+
+@import url("https://fonts.googleapis.com/css?family=Cinzel&display=swap");
+
+@import url("https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap");
 </style>
