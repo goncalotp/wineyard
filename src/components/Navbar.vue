@@ -26,7 +26,7 @@
             </a>
           </li>
           <a href="#" class="dropdown-item"><router-link to="/profile">Perfil</router-link></a>
-          <a href="#" @click="logout()" class="dropdown-item">Logout</a>
+          <a href="#" @click="logout()" class="dropdown-item"><router-link to="/">Logout</router-link></a>
         </div>
       </div>
       <li class="nav-item">

@@ -33,6 +33,9 @@
     "env": {
       "node": true
     },
+    "globals": {
+      "google": {}
+    },
     "extends": [
       "plugin:vue/essential",
       "@vue/prettier"
@@ -41,6 +44,7 @@
     "parserOptions": {
       "parser": "babel-eslint"
     }
+
   },
   "browserslist": [
     "> 1%",
