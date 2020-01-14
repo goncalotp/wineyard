@@ -5,7 +5,12 @@
 
     <br />
     <br />
-    <div class="container"><InfoRotas></InfoRotas></div>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="grid-item col-10"><InfoRotas></InfoRotas></div>
+        <div class="grid-item col-2 "><QuintasDestaque></QuintasDestaque></div>
+      </div>
+    </div>
     <br />
     <br /><br />
     <br /><br />
@@ -19,7 +24,7 @@
 // @ is an alias to /src
 
 import Toppage from "../components/Toppage.vue";
-
+import QuintasDestaque from "../components/QuintasDestaque.vue";
 import InfoRotas from "../components/InfoRotas.vue";
 
 import Features from "../components/Features.vue";
@@ -29,7 +34,8 @@ export default {
   components: {
     Toppage,
     InfoRotas,
-    Features
+    Features,
+    QuintasDestaque
   }
   /*   computed:{
     addWineries(){
