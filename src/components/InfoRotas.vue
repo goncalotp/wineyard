@@ -7,7 +7,11 @@
         <div class="face front">
           <!-- Image-->
           <div class="view overlay">
-            <img class="card-img-top" src="../assets/rota1imagem.jpg" alt="Example photo" />
+            <img
+              class="card-img-top"
+              src="../assets/rota1imagem.jpg"
+              alt="Example photo"
+            />
             <a>
               <div class="mask rgba-white-slight"></div>
             </a>
@@ -25,8 +29,12 @@
             </p>
             <div style="text-align:right">
               <button class="btn btn-simple" id="1" @click="seleteRoute(1)">
-                <i class="fa fa-mail-forward"></i>
-                <router-link to="/routesdescription">Ver mais</router-link>
+                <i class="fa fa-mail-forward"></i> &nbsp; &nbsp;
+                <router-link
+                  style="color: black; text-decoration: none; "
+                  to="/routesdescription"
+                  >Ver mais</router-link
+                >
               </button>
             </div>
           </div>
@@ -39,7 +47,11 @@
         <div class="face front">
           <!-- Image-->
           <div class="view overlay">
-            <img class="card-img-top" src="../assets/rota2imagem.jpg" alt="Example photo" />
+            <img
+              class="card-img-top"
+              src="../assets/rota2imagem.jpg"
+              alt="Example photo"
+            />
             <a>
               <div class="mask rgba-white-slight"></div>
             </a>
@@ -59,8 +71,12 @@
           </div>
           <div style="text-align:right" id="2" @click="seleteRoute(2)">
             <button class="btn btn-simple">
-              <i class="fa fa-mail-forward"></i>
-              <router-link to="/routesdescription">Ver mais</router-link>
+              <i class="fa fa-mail-forward"></i> &nbsp; &nbsp;
+              <router-link
+                style="color: black; text-decoration: none; "
+                to="/routesdescription"
+                >Ver mais</router-link
+              >
             </button>
           </div>
         </div>
@@ -73,7 +89,11 @@
         <div class="face front">
           <!-- Image-->
           <div class="view overlay">
-            <img class="card-img-top" src="../assets/rota3imagem.jpg" alt="Example photo" />
+            <img
+              class="card-img-top"
+              src="../assets/rota3imagem.jpg"
+              alt="Example photo"
+            />
             <a>
               <div class="mask rgba-white-slight"></div>
             </a>
@@ -83,8 +103,8 @@
           <div class="card-body">
             <h4 class style="text-align:center ">
               Rota 3
-              <img src="../assets/circulovermelho1.png" /> À descoberta do
-              Douro Superior
+              <img src="../assets/circulovermelho1.png" /> À descoberta do Douro
+              Superior
             </h4>
             <p class="card-text" style="text-align:center">
               Armamar, Galafura, Lamego, Mesão Frio, Peso da Régua - Poirares,
@@ -94,8 +114,12 @@
 
             <div style="text-align:right">
               <button class="btn btn-simple" id="3" @click="seleteRoute(3)">
-                <i class="fa fa-mail-forward"></i>
-                <router-link to="/routesdescription">Ver mais</router-link>
+                <i class="fa fa-mail-forward"> </i>  &nbsp; &nbsp;
+                <router-link
+                  style="color: black; text-decoration: none; "
+                  to="/routesdescription"
+                  >Ver mais</router-link
+                >
               </button>
             </div>
           </div>

@@ -15,8 +15,8 @@ export default {
       marker: "",
       infoWindow: "",
       contentString: "",
-      lat: 0,
-      long: 0
+      lat: "",
+      long: ""
     };
   },
   created: function() {
@@ -43,11 +43,10 @@ export default {
       }
       this.map = new google.maps.Map(document.querySelector("#myMap"), {
         center: { lat: this.lat, lng: this.long },
-        zoom: 13
+        zoom: 12
       });
       for (const winerie of this.$store.state.wineries) {
         if (winerie.route == this.getSelectedRoute) {
-          alert(this.lat)
           this.marker = new google.maps.Marker({
             position: { lat: winerie.lat, lng: winerie.long },
             title: `${winerie.name}`
@@ -56,7 +55,6 @@ export default {
           <h1 class="firstHeading">${winerie.name}</h1>
           <div><p>Latitude:${winerie.lat}</p>
           <p>Longitude:${winerie.long}</p>
-          <button id=${winerie.id} @click="seleteWinerie(${winerie.id})">Ver Mais</button>
           </div></div>`;
           this.infoWindow = new google.maps.InfoWindow({
             content: this.contentString
@@ -67,11 +65,6 @@ export default {
           );
         }
       }
-    },
-    seleteWinerie(id) {
-      this.$store.commit("SELECT_WINERIE", {
-        idWinerie: id
-      });
     }
   }
 };

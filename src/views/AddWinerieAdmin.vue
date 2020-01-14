@@ -100,8 +100,8 @@ export default {
     },
     addWineries() {
       this.$store.commit("ADD_WINERIES_FORM", {
-        idWinerie: this.getLastId(),
-        nameForm: this.nameForm,
+        idWinerie: this.getLastId() + 1,
+        nameForm: this.nameForm, 
         routeForm: this.routeForm,
         descriptionForm: this.descriptionForm,
         imgForm: this.imgForm,

@@ -4,11 +4,15 @@
     <br />
     <br />
     <button id="backBtn" type="button" class="button btn-primary">
-      <router-link style="color: white; text-decoration: none; "  to="adminpage"> Voltar </router-link>
+      <router-link style="color: white; text-decoration: none; " to="adminpage">
+        Voltar
+      </router-link>
     </button>
     <div class="container">
       <h1>GESTÃO DE UTILIZADORES</h1>
-      <button type="button" class="button btn-primary" @click="orderByName()">A-Z</button>
+      <button type="button" class="button btn-primary" @click="orderByName()">
+        A-Z
+      </button>
       <table class="table">
         <thead>
           <tr>
@@ -20,16 +24,16 @@
         </thead>
         <tbody>
           <tr v-for="user in this.$store.state.users" v-bind:key="user">
-            <td class="align-middle">{{user.name}}</td>
-            <td class="align-middle">{{user.email}}</td>
+            <td class="align-middle">{{ user.name }}</td>
+            <td class="align-middle">{{ user.email }}</td>
             <td class="align-middle">
-                <span v-if='user.type == 0'>Administardor</span>
-                <span v-else>Utilizador</span>
+              <span v-if="user.type == 0">Administardor</span>
+              <span v-else>Utilizador</span>
               <button @click="changeTypeUser(user.email)">-></button>
             </td>
             <td class="align-middle">
-              <span v-if="user.type!=0">
-                <button @click="removeUser(user.email)">Apagar User</button>
+              <span v-if="user.type != 0">
+                <button @click="removeUser(user.email)">🗑️</button>
               </span>
               <span v-else>Não se pode Remover</span>
             </td>
@@ -37,7 +41,7 @@
         </tbody>
       </table>
     </div>
-       <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
   </div>
 </template>
 <script>
@@ -55,24 +59,24 @@ export default {
         });
       }
     },
-    changeTypeUser(mail){
-        if (confirm("Deseja mesmo mudar o tipo de utilizador?")) {
+    changeTypeUser(mail) {
+      if (confirm("Deseja mesmo mudar o tipo de utilizador?")) {
         this.$store.commit("CHANGE_TYPE_USER", {
           email: mail
         });
       }
     },
     compareName(a, b) {
-      if (a.name < b.name) return -1
-      if (a.name > b.name) return 1
-      else return 0
+      if (a.name < b.name) return -1;
+      if (a.name > b.name) return 1;
+      else return 0;
     },
-    orderByName(){
-        this.$store.commit("ORDER_BY_NAME", {
-            compare: this.compareName
-        });
+    orderByName() {
+      this.$store.commit("ORDER_BY_NAME", {
+        compare: this.compareName
+      });
     }
-  },
+  }
 };
 </script>
 
@@ -92,10 +96,7 @@ export default {
 .button:hover {
   background-color: black;
 }
-#backBtn{
- 
+#backBtn {
   background-color: #555555;
 }
-
-
 </style>
