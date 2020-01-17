@@ -411,7 +411,7 @@ export default new Vuex.Store({
       }
     ],
     routeSelected: "",
-    winerieSelected: "",
+    winerieSelected: "1",
     existWineries: false,
     comments: []
   },
@@ -435,6 +435,14 @@ export default new Vuex.Store({
       return state.comments.length
         ? state.comments[state.comments.length - 1].id
         : 0;
+    },
+
+    winerieName(state) {
+      for (const winerie of state.wineries) {
+        if (winerie.id == state.winerieSelected) {
+          return winerie.name;
+        }
+      }
     },
     lastId(state) {
       return state.wineries.length
@@ -607,7 +615,8 @@ export default new Vuex.Store({
         name: payload.nameComment,
         comment: payload.textComment,
         date: payload.dateComment,
-        hour: payload.hourComment
+        hour: payload.hourComment,
+        nameWinerie: payload.nameWineries
       });
       localStorage.setItem("comments", JSON.stringify(this.state.comments));
     }

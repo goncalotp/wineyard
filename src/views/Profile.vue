@@ -59,7 +59,7 @@
                 v-bind:key="comment"
               >
                 <td v-if="email() == comment.email" class="align-middle">
-                  {{ comment.id }}
+                  {{ comment.nameWinerie }}
                 </td>
                 <td v-if="email() == comment.email" class="align-middle">
                   {{ comment.comment }}
@@ -117,8 +117,16 @@ export default {
 </script>
 
 <style scoped>
+h1 {
+  font-family: "Cinzel", serif;
+}
+
 #lixo {
   background: none;
   border: none;
 }
+
+@import url("https://fonts.googleapis.com/css?family=Cinzel&display=swap");
+
+@import url("https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap");
 </style>

@@ -16,8 +16,8 @@
         class="slider"
         id="myRange"
         v-model="rating"
-      /> &nbsp;
-      <b>5</b>  <button id="btnPoints">Pontuar</button>
+      />
+      &nbsp; <b>5</b> <button id="btnPoints">Pontuar</button>
       <p>Value:{{ rating }} <span id="demo"></span></p>
       <h3>Comentários</h3>
       <form
@@ -92,7 +92,8 @@ export default {
         nameComment: this.$store.getters.name,
         textComment: this.textComment,
         dateComment: `${day}/${month}/${year}`,
-        hourComment: `${hour}:${minutes}`
+        hourComment: `${hour}:${minutes}`,
+        nameWineries: this.$store.getters.winerieName
       });
       this.textComment = "";
     }
@@ -160,7 +161,8 @@ h1 {
   font-family: "Cinzel", serif;
 }
 
-h5,h3 {
+h5,
+h3 {
   font-family: "Didact Gothic", sans-serif;
 }
 #lixo {

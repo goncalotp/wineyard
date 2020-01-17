@@ -100,4 +100,8 @@
   margin: 4px 2px;
   cursor: pointer;
 }
+
+.button:hover {
+  background-color: #9e2929;
+}
 </style>
