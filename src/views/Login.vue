@@ -39,13 +39,25 @@
                 v-model="passwordLogin"
               />
             </div>
-             <button type="submit" class="button btn-primary float-right">
+            <button
+              id="loginBtn"
+              style="color: white; text-decoration: none; background-color: #555555;"
+              type="submit"
+              class="button btn-primary float-right"
+            >
               Iniciar Sessão
             </button>
-            <button id="registerBtn" type="button" class="button btn-link float-right">
-              <router-link style="color: black; text-decoration: none;" to="/register">Registar</router-link>
+            <button
+              id="registerBtn"
+              type="button"
+              class="button btn-link float-right"
+            >
+              <router-link
+                style="color: black; text-decoration: none;"
+                to="/register"
+                >Registar</router-link
+              >
             </button>
-           
           </form>
         </div>
       </div>
@@ -57,8 +69,6 @@
     <br />
     <br />
     <br />
-
-  
   </div>
 </template>
 
@@ -91,9 +101,6 @@ export default {
     localStorage.setItem("users", JSON.stringify(this.$store.state.users));
   }
 };
-
-
-
 </script>
 
 <style>
@@ -112,22 +119,19 @@ export default {
 }
 
 .button:hover {
-  background-color: black;
+  background-color: #689666;
 }
 
-
-#registerBtn{
+#registerBtn {
   font-family: "Cinzel", serif;
-   background-color: white;
-   border: none;
- 
+  background-color: white;
+  border: none;
 }
 h1 {
   font-family: "Cinzel", serif;
 }
 
-
-label{
+label {
   font-family: "Didact Gothic", sans-serif;
 }
 

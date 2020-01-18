@@ -21,12 +21,21 @@
             v-for="user in this.$store.state.loggedUser"
             v-bind:key="user"
           >
-            <a v-if="user.type == '0'" id="items" class="dropdown-item" href="#">
+            <a
+              v-if="user.type == '0'"
+              id="items"
+              class="dropdown-item"
+              href="#"
+            >
               <router-link to="/adminpage">Gestão</router-link>
             </a>
           </li>
-          <a href="#" class="dropdown-item"><router-link to="/profile">Perfil</router-link></a>
-          <a href="#" @click="logout()" class="dropdown-item"><router-link to="/">Logout</router-link></a>
+          <a href="#" class="dropdown-item"
+            ><router-link to="/profile">Perfil</router-link></a
+          >
+          <a href="#" @click="logout()" class="dropdown-item"
+            ><router-link to="/">Logout</router-link></a
+          >
         </div>
       </div>
       <li class="nav-item">
@@ -46,7 +55,7 @@
       </li>
       <li class="nav-item">
         <a id="items" class="nav-link" href="#">
-              <router-link to="/about">Contactos</router-link>
+          <router-link to="/about">Contactos</router-link>
         </a>
       </li>
       <li class="nav-item">
@@ -120,6 +129,7 @@ export default {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
 a {
   color: white;
 }
@@ -129,8 +139,8 @@ a {
   font-family: "Cinzel", serif;
 }
 
-.navbar-brand{
-   font-family: "Cinzel", serif;
+.navbar-brand {
+  font-family: "Cinzel", serif;
 }
 
 @import url("https://fonts.googleapis.com/css?family=Cinzel&display=swap");

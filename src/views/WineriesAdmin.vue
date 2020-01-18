@@ -4,11 +4,22 @@
     <br />
     <br />
     <button type="button" class="button btn-primary">
-      <router-link style="color: white; text-decoration: none; " to="adminpage">Voltar</router-link>
+      <router-link style="color: white; text-decoration: none; " to="adminpage"
+        >Voltar</router-link
+      >
     </button>
     <div class="container">
       <h1>GESTÃO DAS QUINTAS E ADEGAS</h1>
-      <button type="button" class="button btn-primary" @click="orderByName()">A-Z</button>
+      <button type="button" class="button btn-primary" @click="orderByName()">
+        A-Z
+      </button>
+      <div style="text-align:right">
+        <input
+          type="text"
+          v-model="searchResultWinerieName"
+          placeholder="procura por quinta"
+        />
+      </div>
       <table class="table">
         <thead>
           <tr>
@@ -21,7 +32,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="winerie in this.$store.state.wineries" v-bind:key="winerie">
+          <tr v-for="winerie in searchBar" v-bind:key="winerie">
             <td class="align-middle">{{ winerie.name }}</td>
             <td class="align-middle">{{ winerie.route }}</td>
             <td class="align-middle">{{ winerie.rate }}</td>
@@ -34,7 +45,12 @@
               <span v-else>NÃO</span>
             </td>
             <td class="align-middle">
-              <button @click="removeWineries(winerie.id)">Apagar Quinta/Adega</button>
+              <button
+                style="border:none; background-color:white"
+                @click="removeWineries(winerie.id)"
+              >
+                🗑️
+              </button>
             </td>
           </tr>
         </tbody>
@@ -43,21 +59,16 @@
     <br />
     <br />
     <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
+   
+  
+  
   </div>
 </template>
 <script>
 export default {
+  data: () => ({
+    searchResultWinerieName: ""
+  }),
   methods: {
     created: function() {
       if (localStorage.getItem("wineries")) {
@@ -89,6 +100,19 @@ export default {
       "wineries",
       JSON.stringify(this.$store.state.wineries)
     );
+  },
+  computed: {
+    searchBar() {
+      return this.$store.state.wineries.filter(winerie => {
+        let filterSearchBar = true;
+
+        if (this.searchResultWinerieName !== "") {
+          filterSearchBar = winerie.name.includes(this.searchResultWinerieName);
+        }
+
+        return filterSearchBar;
+      });
+    }
   }
 };
 </script>
@@ -106,9 +130,24 @@ export default {
   margin: 4px 2px;
   cursor: pointer;
 }
-.button:hover {
-  background-color: black;
+.button {
+  background-color: #555555; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-family: "Cinzel", serif;
 }
+
+.button:hover {
+  background-color: #689666;
+}
+
 #backBtn {
   background-color: #555555;
 }

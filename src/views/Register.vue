@@ -117,8 +117,8 @@ export default {
 };
 </script>
 
-<style>
-.button {
+<style >
+button {
   background-color: #555555; /* Green */
   border: none;
   color: white;
@@ -132,8 +132,8 @@ export default {
   font-family: "Cinzel", serif;
 }
 
-.button:hover {
-  background-color: black;
+button:hover {
+  background-color: #689666;
 }
 
 #loginBtn {

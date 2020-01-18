@@ -53,6 +53,7 @@
         <small>{{ comment.date }} {{ comment.hour }}</small>
       </div>
     </div>
+    <br />    <br />
   </div>
 </template>
 <script>
@@ -155,6 +156,10 @@ button {
   margin: 4px 2px;
   cursor: pointer;
   font-family: "Cinzel", serif;
+}
+
+button:hover {
+  background-color: #689666;
 }
 
 h1 {
