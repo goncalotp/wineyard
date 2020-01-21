@@ -15,6 +15,36 @@
             <option value="2">Rota 2</option>
             <option value="3">Rota 3</option>
           </select>
+          <div>
+            <table v-if="this.routesMy != '' " class="table form-group ">
+              <thead>
+                <tr>
+                  <th class="align-middle" scope="col">Nome</th>
+                  <th class="align-middle" scope="col">Classificação</th>
+                  <th class="align-middle" scope="col">Degostação</th>
+                  <th class="align-middle" scope="col">Almoço</th>
+                  <th class="align-middle" scope="col">Visitar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="winerie in filterRoutes" v-bind:key="winerie">
+                  <td class="align-middle">{{ winerie.name }}</td>
+                  <td class="align-middle">{{ winerie.rate }}</td>
+                  <td class="align-middle">
+                    <span v-if="winerie.wine == true">SIM</span>
+                    <span v-else>NÃO</span>
+                  </td>
+                  <td class="align-middle">
+                    <span v-if="winerie.lunch == true">SIM</span>
+                    <span v-else>NÃO</span>
+                  </td>
+                  <td class="align-middle">
+                    <input type="checkbox"  />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
           <br />
           <div class="row">
@@ -23,14 +53,9 @@
               <br />
               <br />
 
-              <div class="switch_box box_4 " style="padding-left:8.5em">
-                <div class="input_wrapper ">
-                  <input
-                    id="checkLunch"
-                    type="checkbox"
-                    class="switch_4"
-                    v-model="lunchMy"
-                  />
+              <div class="switch_box box_4">
+                <div class="input_wrapper">
+                  <input id="checkLunch" type="checkbox" class="switch_4" v-model="lunchMy" />
                   <svg
                     class="is_checked"
                     xmlns="http://www.w3.org/2000/svg"
@@ -61,14 +86,9 @@
               <br />
               <br />
 
-              <div class="switch_box box_4" style="padding-left:8em">
+              <div class="switch_box box_4" style="text-align:center">
                 <div class="input_wrapper">
-                  <input
-                    id="checkWine"
-                    type="checkbox"
-                    class="switch_4"
-                    v-model="wineMy"
-                  />
+                  <input id="checkWine" type="checkbox" class="switch_4" v-model="wineMy" />
                   <svg
                     class="is_checked"
                     xmlns="http://www.w3.org/2000/svg"
@@ -125,6 +145,13 @@ export default {
         lunchMy: this.lunchMy,
         wineMy: this.wineMy
       });
+    }
+  },
+  computed: {
+    filterRoutes() {
+      return this.$store.state.wineries.filter(
+        winerie => winerie.route == this.routesMy
+      );
     }
   }
 };

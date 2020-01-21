@@ -69,7 +69,8 @@ export default {
     Footer
   },
   data: () => ({
-    searchResultName: ""
+    searchResultName: "",
+    route:""
   }),
   created: function() {
     if (localStorage.getItem("users")) {
@@ -107,11 +108,9 @@ export default {
     searchBar() {
       return this.$store.state.users.filter(user => {
         let filterSearchBar = true;
-
         if (this.searchResultName !== "") {
-          filterSearchBar = user.name.includes(this.searchResultName);
+         filterSearchBar = user.name.includes(this.searchResultName);
         }
-
         return filterSearchBar;
       });
     }

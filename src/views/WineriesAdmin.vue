@@ -109,7 +109,6 @@ export default {
         if (this.searchResultWinerieName !== "") {
           filterSearchBar = winerie.name.includes(this.searchResultWinerieName);
         }
-
         return filterSearchBar;
       });
     }

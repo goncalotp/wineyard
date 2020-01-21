@@ -9,20 +9,11 @@
 <script>
 export default {
   name: "Maps",
-  data: function() {
-    return {
-      map: "",
-      marker: "",
-      infoWindow: "",
-      contentString: "",
-      lat: 0,
-      long: 0
-    };
-  },
   created: function() {
     if (localStorage.getItem("wineries")) {
       this.$store.state.wineries = JSON.parse(localStorage.getItem("wineries"));
     }
+     window.addEventListener("click", this.renderMap());
   },
   computed: {
     getSelectedRoute() {
@@ -31,40 +22,44 @@ export default {
   },
   methods: {
     renderMap() {
+      let lati = 0;
+      let long = 0;
+      let contentString = "";
+      let map = "";
       if (this.getSelectedRoute == 1) {
-        this.lat = 41.161933;
-        this.long = -7.766806;
+        lati = 41.161933;
+        long = -7.766806;
       } else if (this.getSelectedRoute == 2) {
-        this.lat = 41.163577;
-        this.long = -7.582799;
+        lati = 41.163577;
+        long = -7.582799;
       } else if (this.getSelectedRoute == 3) {
-        this.lat = 41.186872;
-        this.long = -7.115952;
+        lati = 41.186872;
+        long = -7.115952;
       }
-      this.map = new google.maps.Map(document.querySelector("#myMap"), {
-        center: { lat: this.lat, lng: this.long },
+      map = new google.maps.Map(document.querySelector("#myMap"), {
+        center: { lat: lati, lng: long },
         zoom: 13
       });
       for (const winerie of this.$store.state.wineries) {
         if (winerie.route == this.getSelectedRoute) {
-          alert(this.lat)
-          this.marker = new google.maps.Marker({
-            position: { lat: winerie.lat, lng: winerie.long },
+          let marker = new google.maps.Marker({
+            position: { lat: Number(winerie.lat), lng: Number(winerie.long) },
             title: `${winerie.name}`
           });
-          this.contentString = `<div id="content"><div></div
-          <h1 class="firstHeading">${winerie.name}</h1>
+
+          contentString = `<div id="content"><div></div>
+          <h5>${winerie.name}</h5>
           <div><p>Latitude:${winerie.lat}</p>
           <p>Longitude:${winerie.long}</p>
-          <button id=${winerie.id} @click="seleteWinerie(${winerie.id})">Ver Mais</button>
+          <button id=${winerie.id} @click=${this.seleteWinerie(
+            winerie.id
+          )}><router-link to="/wineriesdescription">Ver Mais</router-link></button>
           </div></div>`;
-          this.infoWindow = new google.maps.InfoWindow({
-            content: this.contentString
+          let infoWindow = new google.maps.InfoWindow({
+            content: contentString
           });
-          this.marker.setMap(this.map);
-          this.marker.addListener("click", () =>
-            this.infowindow.open(this.map, this.marker)
-          );
+          marker.setMap(map);
+          marker.addListener("click", () => infoWindow.open(map, marker));
         }
       }
     },
@@ -72,6 +67,7 @@ export default {
       this.$store.commit("SELECT_WINERIE", {
         idWinerie: id
       });
+      alert("aqui");
     }
   }
 };

@@ -43,6 +43,7 @@ const routes = [
   {
     path: "/myroutes",
     name: "myroutes",
+    meta: "",
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/MyRoutes.vue"),
     beforeEnter(to, from, next) {
@@ -122,11 +123,19 @@ const routes = [
     name: "profile",
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Profile.vue")
-  }
+  },
+  {
+    path: "/wineriesdescription",
+    name: "wineriesdescription",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/WineriesDescription.vue")
+  },
 ];
 
 const router = new VueRouter({
-  routes
+  routes,
+  scrollBehavior () {
+    return { x: 0, y: 0 }}
 });
 
 export default router;
