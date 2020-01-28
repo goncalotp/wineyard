@@ -10,10 +10,15 @@
 export default {
   name: "Maps",
   created: function() {
+    const obj = this
     if (localStorage.getItem("wineries")) {
       this.$store.state.wineries = JSON.parse(localStorage.getItem("wineries"));
     }
-     window.addEventListener("click", this.renderMap());
+    window.seleteWinerie = function(id) {
+        alert("xxx" + id)
+        obj.$store.commit("SELECT_WINERIE", {idWinerie: id});
+        obj.$router.push({name: 'wineriesdescription', params:{winerieId: id}})
+    }
   },
   computed: {
     getSelectedRoute() {
@@ -24,7 +29,6 @@ export default {
     renderMap() {
       let lati = 0;
       let long = 0;
-      let contentString = "";
       let map = "";
       if (this.getSelectedRoute == 1) {
         lati = 41.161933;
@@ -47,13 +51,11 @@ export default {
             title: `${winerie.name}`
           });
 
-          contentString = `<div id="content"><div></div>
+          let contentString = `<div id="content">
           <h5>${winerie.name}</h5>
           <div><p>Latitude:${winerie.lat}</p>
           <p>Longitude:${winerie.long}</p>
-          <button id=${winerie.id} @click=${this.seleteWinerie(
-            winerie.id
-          )}><router-link to="/wineriesdescription">Ver Mais</router-link></button>
+          <button onclick='seleteWinerie(${winerie.id})'">Ver Mais</button>
           </div></div>`;
           let infoWindow = new google.maps.InfoWindow({
             content: contentString
@@ -67,7 +69,7 @@ export default {
       this.$store.commit("SELECT_WINERIE", {
         idWinerie: id
       });
-      alert("aqui");
+       this.$router.push({name: 'wineriesdescription', params:{winerieId: id}})
     }
   }
 };

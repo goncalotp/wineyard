@@ -6,22 +6,36 @@
     <div style="text-align:center">
       <h3>As minhas rotas</h3>
       <br />
+      <div v-for="userR in filterRoutesUser" :key="userR">
+        <p>{{ userR.nameRoute }}</p>
+        <p>{{ userR.dateRoute }}</p>
+        <div v-for="winerie in this.$store.state.wineries" :key="winerie">
+          <span v-if="winerie.id == userR.wineries">
+            <p>{{ winerie.name }}</p>
+          </span>
+        </div>
+      </div>
 
+      <br />
       <form v-on:submit.prevent="addMyRoutes()">
-        <div class="form-group container col-sm-4">
+        <div class="form-group container col-sm-6">
           <label for="selectRoutes">Escolher Rota</label>
           <select class="form-control" id="selectRoutes" v-model="routesMy">
             <option value="1">Rota 1</option>
             <option value="2">Rota 2</option>
             <option value="3">Rota 3</option>
           </select>
-          <div>
-            <table v-if="this.routesMy != '' " class="table form-group ">
+          <div class="col-sm-12">
+            <table
+              v-if="this.routesMy != ''"
+              class="table form-group"
+              style="text-align:middle"
+            >
               <thead>
                 <tr>
                   <th class="align-middle" scope="col">Nome</th>
                   <th class="align-middle" scope="col">Classificação</th>
-                  <th class="align-middle" scope="col">Degostação</th>
+                  <th class="align-middle" scope="col">Degustação</th>
                   <th class="align-middle" scope="col">Almoço</th>
                   <th class="align-middle" scope="col">Visitar</th>
                 </tr>
@@ -31,95 +45,58 @@
                   <td class="align-middle">{{ winerie.name }}</td>
                   <td class="align-middle">{{ winerie.rate }}</td>
                   <td class="align-middle">
-                    <span v-if="winerie.wine == true">SIM</span>
-                    <span v-else>NÃO</span>
+                    <span v-if="winerie.wine == true">✔️</span>
+                    <span v-else>❌</span>
                   </td>
                   <td class="align-middle">
-                    <span v-if="winerie.lunch == true">SIM</span>
-                    <span v-else>NÃO</span>
+                    <span v-if="winerie.lunch == true">✔️</span>
+                    <span v-else>❌</span>
                   </td>
                   <td class="align-middle">
-                    <input type="checkbox"  />
+                    <input
+                      type="checkbox"
+                      :value="winerie.id"
+                      v-model="checkWineries"
+                      :checked="isAllSelected"
+                    />
                   </td>
                 </tr>
               </tbody>
+              <td>Selecionar todos</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>
+                <input
+                  type="checkbox"
+                  v-model="isAllSelected"
+                  @click="selectAll"
+                />
+              </td>
             </table>
           </div>
-
           <br />
           <div class="row">
-            <div class="col-sm-6">
-              <label for>Almoço</label>
-              <br />
-              <br />
-
-              <div class="switch_box box_4">
-                <div class="input_wrapper">
-                  <input id="checkLunch" type="checkbox" class="switch_4" v-model="lunchMy" />
-                  <svg
-                    class="is_checked"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 426.67 426.67"
-                  >
-                    <path
-                      d="M153.504 366.84c-8.657 0-17.323-3.303-23.927-9.912L9.914 237.265c-13.218-13.218-13.218-34.645 0-47.863 13.218-13.218 34.645-13.218 47.863 0l95.727 95.727 215.39-215.387c13.218-13.214 34.65-13.218 47.86 0 13.22 13.218 13.22 34.65 0 47.863L177.435 356.928c-6.61 6.605-15.27 9.91-23.932 9.91z"
-                    />
-                  </svg>
-                  <svg
-                    class="is_unchecked"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 212.982 212.982"
-                  >
-                    <path
-                      d="M131.804 106.49l75.936-75.935c6.99-6.99 6.99-18.323 0-25.312-6.99-6.99-18.322-6.99-25.312 0L106.49 81.18 30.555 5.242c-6.99-6.99-18.322-6.99-25.312 0-6.99 6.99-6.99 18.323 0 25.312L81.18 106.49 5.24 182.427c-6.99 6.99-6.99 18.323 0 25.312 6.99 6.99 18.322 6.99 25.312 0L106.49 131.8l75.938 75.937c6.99 6.99 18.322 6.99 25.312 0 6.99-6.99 6.99-18.323 0-25.313l-75.936-75.936z"
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-            <br />
-            <div class="col-sm-6 text-align:right">
-              <label for>Degustação de vinhos</label>
-              <br />
-              <br />
-
-              <div class="switch_box box_4" style="text-align:center">
-                <div class="input_wrapper">
-                  <input id="checkWine" type="checkbox" class="switch_4" v-model="wineMy" />
-                  <svg
-                    class="is_checked"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 426.67 426.67"
-                  >
-                    <path
-                      d="M153.504 366.84c-8.657 0-17.323-3.303-23.927-9.912L9.914 237.265c-13.218-13.218-13.218-34.645 0-47.863 13.218-13.218 34.645-13.218 47.863 0l95.727 95.727 215.39-215.387c13.218-13.214 34.65-13.218 47.86 0 13.22 13.218 13.22 34.65 0 47.863L177.435 356.928c-6.61 6.605-15.27 9.91-23.932 9.91z"
-                    />
-                  </svg>
-                  <svg
-                    class="is_unchecked"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 212.982 212.982"
-                  >
-                    <path
-                      d="M131.804 106.49l75.936-75.935c6.99-6.99 6.99-18.323 0-25.312-6.99-6.99-18.322-6.99-25.312 0L106.49 81.18 30.555 5.242c-6.99-6.99-18.322-6.99-25.312 0-6.99 6.99-6.99 18.323 0 25.312L81.18 106.49 5.24 182.427c-6.99 6.99-6.99 18.323 0 25.312 6.99 6.99 18.322 6.99 25.312 0L106.49 131.8l75.938 75.937c6.99 6.99 18.322 6.99 25.312 0 6.99-6.99 6.99-18.323 0-25.313l-75.936-75.936z"
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </div>
+            <label for="registerRoute">Nome da rota:</label>
+            <input
+              type="text"
+              class="form-control"
+              v-model="routeName"
+              id="registerRoute"
+              placeholder="Insira o nome da sua rota"
+            />
           </div>
+          <br />
         </div>
       </form>
 
       <br />
       <br />
 
-      <button type="submit" class="button">+ Adicionar rota</button>
+      <button type="submit" @click="addMyRoutes" class="button">
+        + Adicionar rota
+      </button>
+
       <br />
       <br />
       <br />
@@ -132,25 +109,59 @@ export default {
   data: () => ({
     routesMy: "",
     lunchMy: "",
-    wineMy: ""
+    wineMy: "",
+    routeName: "",
+    checkWineries: [],
+    isAllSelected: false
   }),
+  created: function() {
+    if (localStorage.getItem("routesUsers")) {
+      this.$store.state.routesUsers = JSON.parse(
+        localStorage.getItem("routesUsers")
+      );
+    }
+  },
   methods: {
     getLastId() {
-      return this.$store.getters.lastId;
+      return this.$store.getters.lastIdMyRoutes;
     },
     addMyRoutes() {
-      this.$store.commit("ADD_MYROUTES", {
-        idMyRoutes: this.getLastId() + 1,
-        routesMy: this.routesMy,
-        lunchMy: this.lunchMy,
-        wineMy: this.wineMy
+      let lastId = this.getLastId();
+      let today = new Date();
+      let day = today.getDate();
+      let month = today.getMonth() + 1;
+      let year = today.getFullYear();
+      this.$store.commit("ROUTES_USERS", {
+        routeUser: lastId + 1,
+        idRoute: this.routesMy,
+        username: this.$store.getters.email,
+        chkWineries: this.checkWineries,
+        routeName: this.routeName,
+        routeDate: `${day}/${month}/${year}`
       });
+      let c = confirm("Deseja iniciar a sua rota?");
+      if (c == true) {
+        this.$router.push({ name: "route", params: lastId + 1 });
+        this.$store.state.selectMyRouteId = lastId + 1;
+      }
+    },
+    selectAll() {
+      this.checkWineries = [];
+      if (!this.isAllSelected) {
+        for (let i in this.$store.state.wineries)
+          this.checkWineries.push(this.state.wineries[i].id);
+      }
     }
   },
   computed: {
     filterRoutes() {
       return this.$store.state.wineries.filter(
         winerie => winerie.route == this.routesMy
+      );
+    },
+    filterRoutesUser() {
+      return this.$store.state.routesUsers.filter(
+        routeUser => routeUser.user == this.$store.getters.email
       );
     }
   }
@@ -302,5 +313,9 @@ h3 {
 .input_wrapper input[type="checkbox"]:checked ~ .is_unchecked {
   -webkit-transform: translateX(-190%) translateY(-30%) scale(0);
   transform: translateX(-190%) translateY(-30%) scale(0);
+}
+.google-map {
+  height: 500px;
+  margin: auto;
 }
 </style>

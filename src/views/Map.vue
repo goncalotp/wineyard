@@ -7,7 +7,7 @@
       <span v-if="winerie.id == getwinerieSelected()">
         <h1>{{winerie.name}}</h1>
         <h5>{{winerie.description}}</h5>
-        <img src="winerie.img" alt />
+        <img v-bind:src="winerie.img" alt />
       </span>
     </div>
     <hr />
@@ -73,6 +73,7 @@ export default {
     total:0,
   }),
   created: function() {
+    alert(this.$router.params.winerieIdwinerieId)
     window.addEventListener("unload", this.saveStorage);
     if (localStorage.getItem("comments")) {
       this.$store.state.comments = JSON.parse(localStorage.getItem("comments"));

@@ -125,10 +125,22 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/Profile.vue")
   },
   {
-    path: "/wineriesdescription",
+    path: "/wineriesdescription/:winerieId",
     name: "wineriesdescription",
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/WineriesDescription.vue")
+  },
+  {
+    path: "/wineriesdescription/:winerieId",
+    name: "wineriesdescription",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/WineriesDescription.vue")
+  },
+  {
+    path: "/route",
+    name: "route",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Route.vue")
   },
 ];
 

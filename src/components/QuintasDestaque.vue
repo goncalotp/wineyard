@@ -6,7 +6,7 @@
       </h5>
 
       <hr />
-      <div v-for="comment in this.$store.state.comments.slice.reverse()" v-bind:key="comment">
+      <div v-for="comment in this.$store.state.comments.slice().reverse()" v-bind:key="comment">
         <img
           src="../assets/casinha.png"
           style="width:10%; padding-bottom: 0.5em "

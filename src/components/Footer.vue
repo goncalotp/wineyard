@@ -88,6 +88,8 @@ export default {
 <style scoped>
 footer {
   background-color: rgb(49, 49, 49);
+ 
+
 }
 
 h5,
