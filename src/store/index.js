@@ -568,6 +568,15 @@ export default new Vuex.Store({
       state.users = state.users.filter(user => user.email !== payload.email);
       localStorage.setItem("users", JSON.stringify(this.state.users));
     },
+    REMOVE_ROUTE(state, payload) {
+      state.routesUsers = state.routesUsers.filter(
+        route => route.id !== payload.id
+      );
+      localStorage.setItem(
+        "routesUsers",
+        JSON.stringify(this.state.routesUsers)
+      );
+    },
     REMOVE_COMMENT(state, payload) {
       state.comments = state.comments.filter(
         comment => comment.id !== payload.id

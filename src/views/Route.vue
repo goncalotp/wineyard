@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>ROTA ?</h1>
-    <button @click="renderMap()">RENDER MAP</button>
+
     <div class="google-map" id="myMap"></div>
   </div>
 </template>
@@ -19,6 +19,9 @@ export default {
     }
   },
   computed: {},
+  async mounted() {
+    this.renderMap();
+  },
   methods: {
     renderMap() {
       let lati = 0;
@@ -96,3 +99,9 @@ export default {
   }
 };
 </script>
+<style scoped>
+.google-map {
+  height: 720px;
+  margin: 0 auto;
+}
+</style>

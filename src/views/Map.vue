@@ -5,13 +5,16 @@
     <br />
     <div v-for="winerie in this.$store.state.wineries" :key="winerie">
       <span v-if="winerie.id == getwinerieSelected()">
-        <h1>{{winerie.name}}</h1>
-        <h5>{{winerie.description}}</h5>
+        <h1>{{ winerie.name }}</h1>
+        <h5>{{ winerie.description }}</h5>
         <img v-bind:src="winerie.img" alt />
       </span>
     </div>
     <hr />
-    <div class="container col-sm-12" v-if="this.$store.state.loggedUser.length != 0">
+    <div
+      class="container col-sm-12"
+      v-if="this.$store.state.loggedUser.length != 0"
+    >
       <div v-if="this.filterRatings.length == 0">
         <b>1</b> &nbsp;
         <input
@@ -22,20 +25,24 @@
           class="slider"
           id="myRange"
           v-model="rating"
-        /> &nbsp;
+        />
+        &nbsp;
         <b>5</b>
         <button @click="vote()">Pontuar</button>
         <p>Value:{{ rating }}</p>
       </div>
       <div v-for="rate in filterRatings" :key="rate">
         <span>
-          Seu voto:{{rate.rate}}
+          Seu voto:{{ rate.rate }}
           <button @click="changeRating(rate.id)">Alterar</button>
         </span>
       </div>
     </div>
     <h3>Comentários</h3>
-    <form v-on:submit.prevent="addComment()" v-if="this.$store.state.loggedUser.length != 0">
+    <form
+      v-on:submit.prevent="addComment()"
+      v-if="this.$store.state.loggedUser.length != 0"
+    >
       <div class="form-group">
         <span></span>
         <textarea
@@ -51,7 +58,10 @@
       <br />
       <br />
     </form>
-    <div v-for="comment in this.$store.state.comments.slice().reverse()" v-bind:key="comment">
+    <div
+      v-for="comment in this.$store.state.comments.slice().reverse()"
+      v-bind:key="comment"
+    >
       <span v-if="comment.idWinerie == getwinerieSelected()">
         <hr />
         <h5>{{ comment.name }}</h5>
@@ -70,10 +80,10 @@ export default {
     textComment: "",
     typeUser: "",
     rating: "",
-    total:0,
+    total: 0
   }),
   created: function() {
-    alert(this.$router.params.winerieIdwinerieId)
+    alert(this.$router.params.winerieIdwinerieId);
     window.addEventListener("unload", this.saveStorage);
     if (localStorage.getItem("comments")) {
       this.$store.state.comments = JSON.parse(localStorage.getItem("comments"));
@@ -138,8 +148,8 @@ export default {
       this.$store.commit("REMOVE_RATING", {
         idRate: id
       });
-    },
-/*     average() {
+    }
+    /*     average() {
       this.total = 0;
       for (const rate of this.filterWineries()) {
         this.total += rate.rate
@@ -162,6 +172,10 @@ export default {
         rating => rating.idWinerie == this.$store.state.winerieSelected
       );
     }
+  },
+
+  async mounted() {
+    this.renderMap();
   }
 };
 </script>

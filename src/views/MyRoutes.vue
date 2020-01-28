@@ -6,16 +6,30 @@
     <div style="text-align:center">
       <h3>As minhas rotas</h3>
       <br />
-      <div v-for="userR in filterRoutesUser" :key="userR">
-        <p>{{ userR.nameRoute }}</p>
-        <p>{{ userR.dateRoute }}</p>
-        <div v-for="winerie in this.$store.state.wineries" :key="winerie">
-          <span v-if="winerie.id == userR.wineries">
-            <p>{{ winerie.name }}</p>
-          </span>
+      <div class="container">
+        <div class="card-columns">
+          <div v-for="userR in filterRoutesUser" :key="userR">
+            <div class="card text-white mb-3">
+              <a class="button" @click="removeRoute(userR.id)" id="close">X</a>
+              <br />
+              <h5>{{ userR.nameRoute }}</h5>
+              <p class="card-text">
+                {{ userR.dateRoute }}
+              </p>
+              <a
+                class="button"
+                @click="startRoute(userR.id)"
+                style="background: none"
+              >
+                <i class="fa fa-map-o"> </i> &nbsp; &nbsp; Ver rota
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 
+      <br />
+      <h3>Criar rota nova</h3>
       <br />
       <form v-on:submit.prevent="addMyRoutes()">
         <div class="form-group container col-sm-6">
@@ -145,11 +159,28 @@ export default {
         this.$store.state.selectMyRouteId = lastId + 1;
       }
     },
+    startRoute(id) {
+      let conf = confirm("Deseja começar esta rota?");
+      if (conf == true) {
+        this.$router.push({ name: "route", params: id });
+        this.$store.state.selectMyRouteId = id;
+      }
+    },
     selectAll() {
       this.checkWineries = [];
       if (!this.isAllSelected) {
         for (let i in this.$store.state.wineries)
           this.checkWineries.push(this.state.wineries[i].id);
+      }
+    },
+    winerieName() {
+      return this.$store.getters.winerieName;
+    },
+    removeRoute(id) {
+      if (confirm("Deseja mesmo remover a rota=")) {
+        this.$store.commit("REMOVE_ROUTE", {
+          id: id
+        });
       }
     }
   },
@@ -199,121 +230,22 @@ h3 {
   color: black;
 }
 
+.card {
+  background-color: #444444;
+  transition: 0.3s;
+  width: 20%;
+  margin: 0 auto;
+  float: center;
+  margin-bottom: 10px;
+}
+#close {
+  background-color: #444444;
+  padding-left: 310px;
+}
 @import url("https://fonts.googleapis.com/css?family=Cinzel&display=swap");
 
 @import url("https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap");
 
-.wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100px;
-  margin: 50vh auto 0;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-.switch_box {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  max-width: 80px;
-  min-width: 80px;
-  height: 0px;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
-/* Switch 4 Specific Style Start */
-
-.input_wrapper {
-  width: 80px;
-  height: 35px;
-  position: relative;
-  cursor: pointer;
-}
-
-.input_wrapper input[type="checkbox"] {
-  width: 80px;
-  height: 40px;
-  cursor: pointer;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background: #e4473c;
-  border-radius: 2px;
-  position: relative;
-  outline: 0;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-
-.input_wrapper input[type="checkbox"]:after {
-  position: absolute;
-  content: "";
-  top: 3px;
-  left: 3px;
-  width: 34px;
-  height: 34px;
-  background: #dfeaec;
-  z-index: 2;
-  border-radius: 2px;
-  -webkit-transition: all 0.35s;
-  transition: all 0.35s;
-}
-
-.input_wrapper svg {
-  position: absolute;
-  top: 50%;
-  -webkit-transform-origin: 50% 50%;
-  transform-origin: 50% 50%;
-  fill: rgb(56, 56, 56);
-  -webkit-transition: all 0.35s;
-  transition: all 0.35s;
-  z-index: 1;
-}
-
-.input_wrapper .is_checked {
-  width: 18px;
-  left: 18%;
-  -webkit-transform: translateX(190%) translateY(-30%) scale(0);
-  transform: translateX(190%) translateY(-30%) scale(0);
-}
-
-.input_wrapper .is_unchecked {
-  width: 15px;
-  right: 15%;
-  -webkit-transform: translateX(0) translateY(-30%) scale(1);
-  transform: translateX(0) translateY(-30%) scale(1);
-}
-
-/* Checked State */
-.input_wrapper input[type="checkbox"]:checked {
-  background: #23da87;
-}
-
-.input_wrapper input[type="checkbox"]:checked:after {
-  left: calc(100% - 37px);
-}
-
-.input_wrapper input[type="checkbox"]:checked + .is_checked {
-  -webkit-transform: translateX(0) translateY(-30%) scale(1);
-  transform: translateX(0) translateY(-30%) scale(1);
-}
-
-.input_wrapper input[type="checkbox"]:checked ~ .is_unchecked {
-  -webkit-transform: translateX(-190%) translateY(-30%) scale(0);
-  transform: translateX(-190%) translateY(-30%) scale(0);
-}
 .google-map {
   height: 500px;
   margin: auto;
