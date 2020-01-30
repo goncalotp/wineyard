@@ -10,9 +10,7 @@
     </button>
     <div class="container">
       <h1>GESTÃO DE UTILIZADORES</h1>
-      <button type="button" class="button" @click="orderByName()">
-        A-Z
-      </button>
+     
       <div style="text-align:right">
         <input
           type="text"
@@ -23,7 +21,7 @@
       <table class="table">
         <thead>
           <tr>
-            <th class="align-middle" scope="col">Nome</th>
+            <th class="align-middle" @click="orderByName()" scope="col">Nome 🔽</th>
             <th class="align-middle" scope="col">E-mail</th>
             <th class="align-middle" scope="col">Tipo de Utilizador</th>
             <th class="align-middle" scope="col">Mudar tipo de utilizador</th>
@@ -61,7 +59,7 @@
         </tbody>
       </table>
     </div>
-    <br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
   </div>
 </template>
 <script>

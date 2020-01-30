@@ -408,6 +408,33 @@ export default new Vuex.Store({
         rate: 0,
         img:
           "http://1.bp.blogspot.com/-nyaLIqLSo5w/UjN96jNlUCI/AAAAAAAAHKo/JZArDjRCRmM/s400/P1280912.JPG"
+      },
+      {
+        id: 29,
+        route: 3,
+        name: "Quinta Vale d'Aldeia",
+        description:
+          "A zona constitui-se de um micro-clima e solo únicos, completando um dos terroirs perfeitos para a obtenção de vinhos de qualidade extrema. Diria mesmo de excelência, avaliando quer pela apreciação de consumidores e críticos em geral, quer pela obtenção de prémios nacionais e internacionais.",
+        lunch: true,
+        wine: true,
+        long: -7.243139,
+        lat: 40.972111,
+        rate: 0,
+        img:
+          "https://www.gstatic.com/images/branding/googlelogo/1x/googlelogo_color_42x16dp.png"
+      },
+      {
+        id: 30,
+        route: 3,
+        name: "Quinta VinilLourenço",
+        description: "Criada em Setembro de 2006",
+        lunch: false,
+        wine: true,
+        long: -7.3005000,
+        lat: 40.867000,
+        rate: 0,
+        img:
+          "https://www.gstatic.com/images/branding/googlelogo/1x/googlelogo_color_42x16dp.png"
       }
     ],
     routeSelected: "",
