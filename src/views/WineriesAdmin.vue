@@ -10,9 +10,6 @@
     </button>
     <div class="container">
       <h1>GESTÃO DAS QUINTAS E ADEGAS</h1>
-      <button type="button" class="button btn-primary" @click="orderByName()">
-        A-Z
-      </button>
       <div style="text-align:right">
         <input
           type="text"
@@ -23,9 +20,12 @@
       <table class="table">
         <thead>
           <tr>
-            <th class="align-middle" scope="col">Nome</th>
-            <th class="align-middle" scope="col">Rota</th>
-            <th class="align-middle" scope="col">Classificação</th>
+            <th class="align-middle" @click="orderByName()" scope="col">
+              Nome 🔽
+            </th>
+            <th class="align-middle"  scope="col">
+              Rota
+            </th>
             <th class="align-middle" scope="col">Degostação</th>
             <th class="align-middle" scope="col">Almoço</th>
             <th class="align-middle" scope="col">Remover</th>
@@ -35,14 +35,13 @@
           <tr v-for="winerie in searchBar" v-bind:key="winerie">
             <td class="align-middle">{{ winerie.name }}</td>
             <td class="align-middle">{{ winerie.route }}</td>
-            <td class="align-middle">{{ winerie.rate }}</td>
             <td class="align-middle">
-              <span v-if="winerie.wine == true">SIM</span>
-              <span v-else>NÃO</span>
+              <span v-if="winerie.wine == true">✔️</span>
+              <span v-else>❌</span>
             </td>
             <td class="align-middle">
-              <span v-if="winerie.lunch == true">SIM</span>
-              <span v-else>NÃO</span>
+              <span v-if="winerie.lunch == true">✔️</span>
+              <span v-else>❌</span>
             </td>
             <td class="align-middle">
               <button
@@ -59,9 +58,6 @@
     <br />
     <br />
     <br />
-   
-  
-  
   </div>
 </template>
 <script>
@@ -101,6 +97,7 @@ export default {
       JSON.stringify(this.$store.state.wineries)
     );
   },
+
   computed: {
     searchBar() {
       return this.$store.state.wineries.filter(winerie => {
@@ -117,6 +114,10 @@ export default {
 </script>
 
 <style>
+td,
+tr {
+  text-align: center;
+}
 .button {
   background-color: #555555; /* Green */
   border: none;

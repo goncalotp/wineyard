@@ -11,16 +11,19 @@
           <div class="row">
             <div class="col-sm-6">
               <h5>{{ winerie.description }}</h5>
+              <br />
+              <br />
+              <h6>Mais informações:</h6>
               <div class="align-middle">
-                🍷Degustação de vinhos:<span v-if="winerie.wine == true"
-                  >✔️</span
-                >
+                🍷Degustação de vinhos:
+                <span v-if="winerie.wine == true">✔️</span>
                 <span v-else>❌</span>
               </div>
               <div class="align-middle">
-                🍴 Servem almoço:<span v-if="winerie.lunch == true">✔️</span>
+                🍴 Servem almoço: <span v-if="winerie.lunch == true">✔️</span>
                 <span v-else>❌</span>
               </div>
+              <div class="align-middle">⭐Pontuação: {{ winerie.rate }}</div>
             </div>
             <div class="col-sm-6">
               <img v-bind:src="winerie.img" style="width:100%" />
@@ -72,6 +75,7 @@
           <br />
           <div v-if="this.$store.state.loggedUser.length != 0">
             <div v-if="this.filterRatings.length == 0">
+              <br>
               <b>1</b> &nbsp;
               <input
                 type="range"
@@ -84,15 +88,16 @@
               />
               &nbsp;
               <b>5</b>
+              <h5 id="ratingSliderRating">{{ rating }}</h5>
               <br />
-              <button @click="vote()">Pontuar</button>
-              <br /><br />
-              <h5>Valor:{{ rating }}</h5>
+              <button id="pontuarBtn" @click="vote()">Pontuar</button>
+              <br />
             </div>
+            <br />
             <div v-for="rate in filterRatings" :key="rate">
               <span>
-                Seu voto:{{ rate.rate }}
-                <button @click="changeRating(rate.id)">Alterar</button>
+                <button @click="changeRating(rate.id)">Alterar</button><br />
+                <h4>Seu voto: {{ rate.rate }}⭐</h4>
               </span>
             </div>
           </div>
@@ -174,13 +179,13 @@ export default {
         rating: this.rating,
         user: this.$store.getters.email
       });
-      this.average()
+      this.average();
     },
     changeRating(id) {
       this.$store.commit("REMOVE_RATING", {
         idRate: id
       });
-      this.average()
+      this.average();
     },
     average() {
       let total = 0;
@@ -212,13 +217,21 @@ export default {
 };
 </script>
 <style>
+#pontuarBtn {
+  width: 50%;
+  text-align: center;
+}
+
+#ratingSliderRating{
+  font-size: 50px
+}
 .slidecontainer {
   width: 100%;
 }
 
 .slider {
   -webkit-appearance: none;
-  width: 20%;
+  width: 50%;
   height: 10px;
   border-radius: 5px;
   background: #444444;

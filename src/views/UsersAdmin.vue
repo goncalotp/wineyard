@@ -24,8 +24,9 @@
         <thead>
           <tr>
             <th class="align-middle" scope="col">Nome</th>
-            <th class="align-middle" scope="col">e-m@il</th>
+            <th class="align-middle" scope="col">E-mail</th>
             <th class="align-middle" scope="col">Tipo de Utilizador</th>
+            <th class="align-middle" scope="col">Mudar tipo de utilizador</th>
             <th class="align-middle" scope="col">Remover</th>
           </tr>
         </thead>
@@ -34,13 +35,15 @@
             <td class="align-middle">{{ user.name }}</td>
             <td class="align-middle">{{ user.email }}</td>
             <td class="align-middle">
-              <span v-if="user.type == 0">Administardor</span>
+              <span v-if="user.type == 0">Administrador</span>
               <span v-else>Utilizador</span>
-              <button
-                style="border:none; background-color:white"
+            </td>
+            <td class="align-middle">
+              <button 
+                style="border:none; background-color:white;"
                 @click="changeTypeUser(user.email)"
               >
-                ➡️
+                🔁
               </button>
             </td>
             <td class="align-middle">
@@ -138,6 +141,12 @@ export default {
   background-color: #689666;
 }
 
+tr{
+  text-align:center
+}
+td{
+  text-align:center
+}
 footer {
   position: relative;
   left: 0;

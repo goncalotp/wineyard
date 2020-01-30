@@ -386,7 +386,7 @@ export default {
 
           let contentString = `<div id="content">
           <h5 >${winerie.name}</h5>
-          <span><h6>Pontuação: ${winerie.rate}</h6>
+          <span><h6>Pontuação: ${winerie.rate}⭐</h6>
           <button class="button" onclick='seleteWinerie(${winerie.id})'">Ver Mais</button>
           </div></div>
           <style>
