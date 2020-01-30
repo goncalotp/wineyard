@@ -22,7 +22,7 @@
               Rota 1
               <img src="../assets/circuloverde1.png" /> Baixo Corgo
               <audio id="audio1" controls="controls" class="float-right">
-                <source src="../assets/audio.mp3" type="audio/mp3" />
+                <source src="../assets/baixoCorgo.mp3" type="audio/mp3" />
               </audio>
             </h4>
             <p class="card-text" style="text-align:center">
@@ -67,7 +67,7 @@
               Rota 2
               <img src="../assets/circuloroxo1.png" /> Alto corgo
               <audio id="audio2" controls="controls" class="float-right">
-                <source src="../assets/audio.mp3" type="audio/mp3" />
+                <source src="../assets/douroSuperior.mp3" type="audio/mp3" />
               </audio>
             </h4>
             <p class="card-text" style="text-align:center">
@@ -113,7 +113,7 @@
               <img src="../assets/circulovermelho1.png" /> À descoberta do Douro
               Superior
               <audio id="audio" controls="controls" class="float-right">
-                <source src="../assets/audio.mp3" type="audio/mp3" />
+                <source src="../assets/cimaCorgo.mp3" type="audio/mp3" />
               </audio>
             </h4>
 
