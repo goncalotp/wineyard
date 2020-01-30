@@ -47,6 +47,9 @@ h5 {
 #nomeQuinta {
   font-family: "Cinzel", serif;
 }
+.card {
+  background-color: white;
+}
 @import url("https://fonts.googleapis.com/css?family=Cinzel&display=swap");
 
 @import url("https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap");

@@ -68,7 +68,9 @@
   width: 50%;
 }
 
-
+.card {
+  background-color: white;
+}
 p {
   font-family: "Didact Gothic", sans-serif;
 }

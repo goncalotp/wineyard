@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-
+import Router from "../router/index.js"
 const Swal = require("sweetalert2");
 
 Vue.use(Vuex);
@@ -499,6 +499,7 @@ export default new Vuex.Store({
             showConfirmButton: false,
             timer: 1500
           });
+          Router.push({ name: "home" });
         }
       } else {
         Swal.fire({
@@ -533,11 +534,19 @@ export default new Vuex.Store({
             showConfirmButton: false,
             timer: 1500
           });
+
           state.existUser = true;
+          Router.push({ name: "home" });
         }
       }
       if (state.existUser === false) {
-        alert("Credenciais Inválidas");
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Credenciais inválidas",
+          showConfirmButton: false,
+          timer: 1500
+        });
       } else {
         state.existUser = false;
       }
@@ -553,12 +562,12 @@ export default new Vuex.Store({
       localStorage.setItem("wineries", JSON.stringify(this.state.wineries));
     },
     CHANGE_TYPE_USER(state, payload) {
-      for (const user of state.users) {
-        if (user.email === payload.mail) {
-          if (user.type == 0) {
-            user.type = 1;
+      for (let i in state.users) {
+        if (state.users[i].email === payload.email) {
+          if (state.users[i].type == 0) {
+            state.users[i].type = 1;
           } else {
-            user.type = 0;
+            state.users[i].type = 0;
           }
         }
       }

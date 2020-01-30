@@ -58,19 +58,14 @@
         </tbody>
       </table>
     </div>
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <Footer></Footer>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br />
   </div>
 </template>
 <script>
-import Footer from "../components/Footer";
 export default {
-  components: {
-    Footer
-  },
   data: () => ({
     searchResultName: "",
-    route:""
+    route: ""
   }),
   created: function() {
     if (localStorage.getItem("users")) {
@@ -109,7 +104,7 @@ export default {
       return this.$store.state.users.filter(user => {
         let filterSearchBar = true;
         if (this.searchResultName !== "") {
-         filterSearchBar = user.name.includes(this.searchResultName);
+          filterSearchBar = user.name.includes(this.searchResultName);
         }
         return filterSearchBar;
       });
@@ -144,14 +139,13 @@ export default {
 }
 
 footer {
-  position: fixed;
+  position: relative;
   left: 0;
   bottom: 0;
   width: 100%;
   color: white;
   text-align: center;
 }
-
 
 @import url("https://fonts.googleapis.com/css?family=Cinzel&display=swap");
 

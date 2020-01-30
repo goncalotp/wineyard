@@ -3,6 +3,17 @@
     <h1>ROTA ?</h1>
 
     <div class="google-map" id="myMap"></div>
+    <br />
+    <h1 style="text-align:center">
+      <img src="../assets/logorating.png" /> Etapas da Rota
+      <img src="../assets/logorating.png" />
+    </h1>
+    <br />
+    
+      <div class="card">
+        <div id="result"></div>
+      </div>
+    
   </div>
 </template>
 <script>
@@ -93,6 +104,36 @@ export default {
       directionsService.route(request, (result, status) => {
         if (status == "OK") {
           directionsRenderer.setDirections(result);
+          const directionsData = result.routes[0].legs[0];
+          var route = result.routes[0];
+          if (directionsData) {
+            // document.querySelector(
+            //   "#result"
+            // ).innerHTML = `Distancia : ${directionsData.distance.text} (${directionsData.duration.text})  `;
+
+            for (var i = 0; i < route.legs.length; i++) {
+              var routeSegment = i + 1;
+              document.querySelector("#result").innerHTML +=
+                "<h3>" + routeSegment + "º" + "Etapa: " + "<br></h3>";
+              document.querySelector("#result").innerHTML +=
+                "<b>Caminho</b> : " +
+                route.legs[i].start_address +
+                " <b>para</b> "; // ver o porque de dar undfined pode ser de ter tirado a cena de ver as ruas etc
+              document.querySelector("#result").innerHTML +=
+                route.legs[i].end_address + " <br> ";
+              document.querySelector("#result").innerHTML +=
+                "<b>Distância</b> : " + route.legs[i].distance.text + " <br> ";
+              document.querySelector("#result").innerHTML +=
+                "<b>Duração da viagem</b> : " +
+                route.legs[i].duration.text +
+                " <br><br> <hr> ";
+            } // este for ver ou tirar
+          } else {
+            document.querySelector("#result").innerHTML =
+              "Directions request faileds";
+          }
+        } else {
+          document.querySelector("#result").innerHTML = status;
         }
       });
     }
@@ -104,4 +145,23 @@ export default {
   height: 720px;
   margin: 0 auto;
 }
+.card {
+  background-color: white;
+  width: 800px;
+  border: none;
+  text-align: center;
+}
+h1 {
+  font-family: "Cinzel", serif;
+}
+#result {
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 20px;
+}
+
+
+
+@import url("https://fonts.googleapis.com/css?family=Cinzel&display=swap");
+
+@import url("https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap");
 </style>

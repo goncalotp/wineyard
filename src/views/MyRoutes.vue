@@ -4,11 +4,11 @@
     <br />
     <br />
     <div style="text-align:center">
-      <h3>As minhas rotas</h3>
+      <h3 v-if="filterRoutesUser.length !== 0">As minhas rotas</h3>
       <br />
       <div class="container">
         <div class="card-columns">
-          <div v-for="userR in filterRoutesUser" :key="userR">
+          <div v-for="userR in filterRoutesUser.slice().reverse()" :key="userR">
             <div class="card text-white mb-3">
               <a class="button" @click="removeRoute(userR.id)" id="close">X</a>
               <br />
@@ -71,22 +71,12 @@
                       type="checkbox"
                       :value="winerie.id"
                       v-model="checkWineries"
-                      :checked="isAllSelected"
+                     
                     />
                   </td>
                 </tr>
               </tbody>
-              <td>Selecionar todos</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>
-                <input
-                  type="checkbox"
-                  v-model="isAllSelected"
-                  @click="selectAll"
-                />
-              </td>
+             
             </table>
           </div>
           <br />
@@ -126,7 +116,7 @@ export default {
     wineMy: "",
     routeName: "",
     checkWineries: [],
-    isAllSelected: false
+  
   }),
   created: function() {
     if (localStorage.getItem("routesUsers")) {
@@ -166,18 +156,12 @@ export default {
         this.$store.state.selectMyRouteId = id;
       }
     },
-    selectAll() {
-      this.checkWineries = [];
-      if (!this.isAllSelected) {
-        for (let i in this.$store.state.wineries)
-          this.checkWineries.push(this.state.wineries[i].id);
-      }
-    },
+    
     winerieName() {
       return this.$store.getters.winerieName;
     },
     removeRoute(id) {
-      if (confirm("Deseja mesmo remover a rota=")) {
+      if (confirm("Deseja mesmo remover a rota?")) {
         this.$store.commit("REMOVE_ROUTE", {
           id: id
         });

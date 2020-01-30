@@ -84,6 +84,8 @@
   margin: 0 auto; /* Added */
   float: none; /* Added */
   margin-bottom: 10px; /* Added */
+  background-color: white;
+  width: 1000px
 }
 
 .button {
