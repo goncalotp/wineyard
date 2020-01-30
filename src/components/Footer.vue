@@ -24,18 +24,14 @@
           <h5 class="font-weight-bold text-uppercase mb-4">Sobre</h5>
 
           <ul class="list-unstyled">
-            <li>
-              <a href="#!"> <router-link to="/myroutes">Minhas Rotas</router-link></a>
-            </li>
+           
             <li>
               <a href="#!"> <router-link to="/about">Contactos</router-link></a>
             </li>
             <li>
               <a href="#!"><router-link to="/map">Mapa</router-link></a>
             </li>
-            <li>
-              <a href="#!"> <router-link to="/login">Login</router-link></a>
-            </li>
+           
           </ul>
         </div>
         <!-- Grid column -->

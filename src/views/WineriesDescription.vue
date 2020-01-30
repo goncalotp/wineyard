@@ -11,6 +11,16 @@
           <div class="row">
             <div class="col-sm-6">
               <h5>{{ winerie.description }}</h5>
+              <div class="align-middle">
+                🍷Degustação de vinhos:<span v-if="winerie.wine == true"
+                  >✔️</span
+                >
+                <span v-else>❌</span>
+              </div>
+              <div class="align-middle">
+                🍴 Servem almoço:<span v-if="winerie.lunch == true">✔️</span>
+                <span v-else>❌</span>
+              </div>
             </div>
             <div class="col-sm-6">
               <img v-bind:src="winerie.img" style="width:100%" />
@@ -164,19 +174,24 @@ export default {
         rating: this.rating,
         user: this.$store.getters.email
       });
+      this.average()
     },
     changeRating(id) {
       this.$store.commit("REMOVE_RATING", {
         idRate: id
       });
-    }
-    /*     average() {
-      this.total = 0;
-      for (const rate of this.filterWineries()) {
-        this.total += rate.rate
+      this.average()
+    },
+    average() {
+      let total = 0;
+      for (const rate of this.filterWineries) {
+        total += Number(rate.rate);
       }
-      let average = this.total/this.filterWineries().length
-    } */
+      let average = total / this.filterWineries.length;
+      this.$store.commit("CHANGE_RATE", {
+        newRate: average
+      });
+    }
   },
   computed: {
     //Filtrar pelo o id da quinta aberta e pelo o user logado
@@ -262,7 +277,8 @@ h1 {
 }
 
 h5,
-h3 {
+h3,
+span {
   font-family: "Didact Gothic", sans-serif;
 }
 #lixo {

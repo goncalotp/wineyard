@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import Router from "../router/index.js"
+import Router from "../router/index.js";
 const Swal = require("sweetalert2");
 
 Vue.use(Vuex);
@@ -689,7 +689,14 @@ export default new Vuex.Store({
         JSON.stringify(this.state.routesUsers)
       );
     },
-    ////////////////////////////CHANGES
+    CHANGE_RATE(state, payload) {
+      for (let i in state.wineries) {
+        if (state.wineries[i].id === state.winerieSelected) {
+          state.wineries[i].rate = payload.newRate;
+        }
+      }
+      localStorage.setItem("wineries", JSON.stringify(this.state.wineries));
+    },
     CHANGE_SELECTED_MYROUTES(state, payload) {
       state.selectMyRouteId = payload.selectRoute;
     }
