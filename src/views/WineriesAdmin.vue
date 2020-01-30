@@ -23,7 +23,7 @@
             <th class="align-middle" @click="orderByName()" scope="col">
               Nome 🔽
             </th>
-            <th class="align-middle"  scope="col">
+            <th class="align-middle" scope="col">
               Rota
             </th>
             <th class="align-middle" scope="col">Degostação</th>
@@ -61,6 +61,7 @@
   </div>
 </template>
 <script>
+const Swal = require("sweetalert2");
 export default {
   data: () => ({
     searchResultWinerieName: ""
@@ -74,11 +75,29 @@ export default {
       }
     },
     removeWineries(id) {
-      if (confirm("Deseja mesmo remover a Quinta/Adega?")) {
-        this.$store.commit("REMOVE_WINERIES", {
-          idWinerie: id
-        });
-      }
+      Swal.fire({
+        title: "Deseja mesmo remover a Quinta/Adega?",
+        text: "Vai apagar a quinta.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#555555",
+        cancelButtonColor: "#555555",
+        confirmButtonText: "Sim",
+        cancelButtonText: "Não"
+      }).then(result => {
+        if (result.value) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Quinta removida.",
+            showConfirmButton: false,
+            timer: 1500
+          });
+          this.$store.commit("REMOVE_WINERIES", {
+            idWinerie: id
+          });
+        }
+      });
     },
     compareName(a, b) {
       if (a.name < b.name) return -1;

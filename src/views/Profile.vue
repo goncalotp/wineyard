@@ -83,6 +83,7 @@
 </template>
 
 <script>
+const Swal = require("sweetalert2");
 export default {
   name: "",
   props: {},
@@ -99,11 +100,30 @@ export default {
   computed: {},
   methods: {
     removeComment(id) {
-      if (confirm("Deseja mesmo remover o comentário?")) {
-        this.$store.commit("REMOVE_COMMENT", {
+      Swal.fire({
+        title: "Deseja mesmo remover o comentário?",
+        text: "Vai apagar o seu comentário.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#555555",
+        cancelButtonColor: "#555555",
+        confirmButtonText: "Sim",
+        cancelButtonText: "Não"
+      }).then(result => {
+        if (result.value) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Comentário apagado.",
+            showConfirmButton: false,
+            timer: 1500
+          });
+          this.$store.commit("REMOVE_COMMENT", {
           id: id
-        });
-      }
+          });
+        }
+      });
+     
     },
     name() {
       return this.$store.getters.name;

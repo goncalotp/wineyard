@@ -385,10 +385,41 @@ export default {
 
         let contentString = `<div id="content">
           <h5>${winerie.name}</h5>
-          <div><p>Latitude:${winerie.lat}</p>
-          <p>Longitude:${winerie.long}</p>
-          <button onclick='seleteWinerie(${winerie.id})'">Ver Mais</button>
-          </div></div>`;
+          <div<span><h6>Pontuação: ${winerie.rate}⭐</h6>
+          <button class="button" onclick='seleteWinerie(${winerie.id})'">Ver Mais</button>
+          </div></div>
+          <style>
+          .button {
+              background-color: #555555; /* Green */
+              border: none;
+              color: white;
+              width:200px;
+              height: 40px;
+              text-align: center;
+              text-decoration: none;
+              font-size: 12px;
+              margin: 4px 2px;
+              cursor: pointer;
+              font-family: "Cinzel", serif;
+                  }
+              .button:hover {
+              background-color: #689666;
+              }
+            h5{
+            font-family: "Cinzel", serif;
+            }
+            p,h6{
+            
+            font-family: "Didact Gothic", sans-serif;
+            text-align:center;
+            padding-left: 10px
+          }
+          div{
+            text-align:center
+          }
+
+
+          </style>`;
         let infoWindow = new google.maps.InfoWindow({
           content: contentString
         });

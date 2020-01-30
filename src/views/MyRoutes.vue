@@ -71,12 +71,10 @@
                       type="checkbox"
                       :value="winerie.id"
                       v-model="checkWineries"
-                     
                     />
                   </td>
                 </tr>
               </tbody>
-             
             </table>
           </div>
           <br />
@@ -109,14 +107,14 @@
 </template>
 
 <script>
+const Swal = require("sweetalert2");
 export default {
   data: () => ({
     routesMy: "",
     lunchMy: "",
     wineMy: "",
     routeName: "",
-    checkWineries: [],
-  
+    checkWineries: []
   }),
   created: function() {
     if (localStorage.getItem("routesUsers")) {
@@ -143,29 +141,82 @@ export default {
         routeName: this.routeName,
         routeDate: `${day}/${month}/${year}`
       });
-      let c = confirm("Deseja iniciar a sua rota?");
-      if (c == true) {
-        this.$router.push({ name: "route", params: lastId + 1 });
-        this.$store.state.selectMyRouteId = lastId + 1;
-      }
+      Swal.fire({
+        title: "Deseja iniciar a sua rota?",
+        text: "Vai ver a sua rota no mapa.",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#555555",
+        cancelButtonColor: "#555555",
+        confirmButtonText: "Sim, quero começar",
+        cancelButtonText: "Não"
+      }).then(result => {
+        if (result.value) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Rota iniciada",
+            showConfirmButton: false,
+            timer: 1500
+          });
+          this.$router.push({ name: "route", params: lastId + 1 });
+          this.$store.state.selectMyRouteId = lastId + 1;
+        }
+      });
     },
     startRoute(id) {
-      let conf = confirm("Deseja começar esta rota?");
-      if (conf == true) {
-        this.$router.push({ name: "route", params: id });
-        this.$store.state.selectMyRouteId = id;
-      }
+      Swal.fire({
+        title: "Deseja iniciar a sua rota?",
+        text: "Vai ver a sua rota no mapa.",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#555555",
+        cancelButtonColor: "#555555",
+        confirmButtonText: "Sim, quero começar",
+        cancelButtonText: "Não"
+      }).then(result => {
+        if (result.value) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Rota iniciada",
+            showConfirmButton: false,
+            timer: 1500
+          });
+          this.$router.push({ name: "route", params: id });
+          this.$store.state.selectMyRouteId = id;
+        }
+      });
+   
     },
-    
+
     winerieName() {
       return this.$store.getters.winerieName;
     },
     removeRoute(id) {
-      if (confirm("Deseja mesmo remover a rota?")) {
-        this.$store.commit("REMOVE_ROUTE", {
-          id: id
-        });
-      }
+      Swal.fire({
+        title: "Tem a certeza que quer apagar a sua rota?",
+        text: "Vai apagar a sua rota",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#555555",
+        cancelButtonColor: "#555555",
+        confirmButtonText: "Sim",
+        cancelButtonText: "Não"
+      }).then(result => {
+        if (result.value) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Rota apagada",
+            showConfirmButton: false,
+            timer: 1500
+          });
+          this.$store.commit("REMOVE_ROUTE", {
+            id: id
+          });
+        }
+      });
     }
   },
   computed: {

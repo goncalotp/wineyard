@@ -39,7 +39,7 @@
               <span v-else>Utilizador</span>
             </td>
             <td class="align-middle">
-              <button 
+              <button
                 style="border:none; background-color:white;"
                 @click="changeTypeUser(user.email)"
               >
@@ -65,6 +65,7 @@
   </div>
 </template>
 <script>
+const Swal = require("sweetalert2");
 export default {
   data: () => ({
     searchResultName: "",
@@ -77,18 +78,54 @@ export default {
   },
   methods: {
     removeUser(mail) {
-      if (confirm("Deseja mesmo remover o utilizador?")) {
-        this.$store.commit("REMOVE_USER", {
-          email: mail
-        });
-      }
+      Swal.fire({
+        title: "Deseja mesmo remover o utilizador?",
+        text: "Vai apagar o utilizador",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#555555",
+        cancelButtonColor: "#555555",
+        confirmButtonText: "Sim",
+        cancelButtonText: "Não"
+      }).then(result => {
+        if (result.value) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Utilizador apagado.",
+            showConfirmButton: false,
+            timer: 1500
+          });
+          this.$store.commit("REMOVE_USER", {
+            email: mail
+          });
+        }
+      });
     },
     changeTypeUser(mail) {
-      if (confirm("Deseja mesmo mudar o tipo de utilizador?")) {
-        this.$store.commit("CHANGE_TYPE_USER", {
-          email: mail
-        });
-      }
+      Swal.fire({
+        title: "Deseja mesmo mudar o tipo de utilizador?",
+        text: "Vai mudar o tipo de utilizador",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#555555",
+        cancelButtonColor: "#555555",
+        confirmButtonText: "Sim",
+        cancelButtonText: "Não"
+      }).then(result => {
+        if (result.value) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Tipo de utilizador alterado.",
+            showConfirmButton: false,
+            timer: 1500
+          });
+          this.$store.commit("CHANGE_TYPE_USER", {
+            email: mail
+          });
+        }
+      });
     },
     compareName(a, b) {
       if (a.name < b.name) return -1;
@@ -141,11 +178,11 @@ export default {
   background-color: #689666;
 }
 
-tr{
-  text-align:center
+tr {
+  text-align: center;
 }
-td{
-  text-align:center
+td {
+  text-align: center;
 }
 footer {
   position: relative;

@@ -168,7 +168,7 @@ h4 {
 audio {
   width: 100px;
   height: 20px;
-  color: white;
+  
   -webkit-transition: all 0.5s linear;
   -moz-transition: all 0.5s linear;
   -o-transition: all 0.5s linear;
